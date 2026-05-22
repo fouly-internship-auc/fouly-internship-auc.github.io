@@ -54,13 +54,11 @@ export default function Reflections() {
           color: 'var(--color-ink-muted)', fontStyle: 'italic',
           maxWidth: 1500,
         }}>
-        Exhibit A: the live final demo froze, on a trace I had walked through
-        an hour earlier and on a prep run-through the day before, on the exact
-        slice picked to show off the cumulative-cycle aggregate. The cause was
-        a real edge case I had not enumerated. The senior engineers in the
-        room treated it as routine, suggested two debugging directions, and
-        we continued. The argument for enumerating edge cases earlier does
-        not get more concrete than that.
+        Exhibit A: the live final demo froze — first time it had done so,
+        despite a clean prep run the day before. The cause was an edge case
+        I simply had not enumerated ahead of time. The room treated it as
+        routine. The argument for enumerating edge cases earlier does not
+        get more concrete than that.
       </Animated>
     </SlideFrame>
   );

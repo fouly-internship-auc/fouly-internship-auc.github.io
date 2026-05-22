@@ -32,16 +32,17 @@ this end of the seniority gap looks like in practice.
 
 == The Wider Team
 
-The Perfetto team is geographically spread, and so was my collaboration.
-On the trace-processor side I worked closely with Lalit Maganti, a
+The Perfetto team is geographically spread across several offices,
+though much of the trace-processor leadership sits in London with me.
+On that side of the codebase I worked closely with Lalit Maganti, a
 senior technical lead who acted as my main code reviewer for the
-relational-algebra work. He was based in a different office and a
-different time zone, which meant most of our exchanges were
-asynchronous, in the form of review comments and the long e-mail
-threads that come with non-trivial design documents. The asynchronous
-style was new to me; I learned, more or less the hard way, how to
-*write a comment that resolves a question rather than starting a new
-one*.
+relational-algebra work, and on the UI and front-end side I worked
+with engineers based in offices I never visited. Even with Lalit in
+the same city, most of our exchanges were textual: review comments,
+design documents and PR threads rather than meetings. The written-
+asynchronous style was new to me; I learned, more or less the hard
+way, how to *write a comment that resolves a question rather than
+starting a new one*.
 
 There are two exchanges that capture what working with this team
 actually felt like better than any abstract description I could write.

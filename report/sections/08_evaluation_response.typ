@@ -31,30 +31,26 @@ default from "consider edge cases when something goes wrong" to
 
 I want to attach a small story to this. The internship culminates in a
 final demo to the team. I had prepared, I had rehearsed, I had done a
-clean run-through with my supervisor the day before. The actual demo
-froze. Not in a small or recoverable way — it locked up, in front of
-the senior engineers I had been working with for three months, on the
-exact slice of the trace I had picked out specifically because it
-demonstrated the cumulative-cycle aggregate cleanly. I had walked the
-same trace through the same UI an hour earlier and it had been fine.
+clean run-through with my supervisor the day before. The live demo
+froze anyway — first time it had done that — in front of the senior
+engineers I had been working with for three months. The same trace,
+the same machine, the same UI that had behaved perfectly an hour
+earlier locked up live, and the failure turned out to trace back to
+an edge case I had simply not enumerated ahead of time.
 
-Two things make that story relevant to this report rather than just
-embarrassing. The first is that the cause turned out to be a real
-edge case I had not handled — a particular interaction between the
-session-track UI and a very long trace that surfaced only under
-display conditions that the prep demo had not reproduced. The second
-is that the room treated it as routine. Senior engineers nodded,
-suggested two debugging directions, asked me to walk through what I
-believed the UI was doing instead, and we continued. Demo freezes,
-the implicit assumption seemed to be, are a normal part of the work,
-and the interesting question is what you say next.
+What makes the story relevant to this report rather than just
+embarrassing is the room's reaction. Demo freezes, the implicit
+assumption seemed to be, are a normal part of the work, and the
+interesting question is what you do next. Nobody flinched; the
+conversation moved on; I learned what I needed to fix from the
+debugging that followed.
 
 It is the cleanest argument I have, in my own experience, for the
 "anticipate edge cases earlier" feedback. Even after preparation, even
-after a successful rehearsal, the edge case that I had not enumerated
-ahead of time was the one that fired live. Going forward, the
-failure-modes section of every design document will be where I start,
-not where I finish.
+after a successful rehearsal, the case I had not written down on a
+failure-modes list ahead of time was the one that fired live. Going
+forward, the failure-modes section of every design document will be
+where I start, not where I finish.
 
 == Initial Architectural Choices
 
