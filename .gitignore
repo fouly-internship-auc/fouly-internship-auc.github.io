@@ -1,0 +1,29 @@
+# Build output
+report/main.pdf
+report/**/*.pdf.bak
+slides/dist/
+slides/build/
+slides/.vite/
+
+# Node
+node_modules/
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Direnv / Nix
+.direnv/
+result
+result-*
+
+# OS / editor cruft
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local-only Claude state
+.claude/
