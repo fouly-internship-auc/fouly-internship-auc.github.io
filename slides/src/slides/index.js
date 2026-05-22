@@ -13,6 +13,7 @@ import ShippedWork from './ShippedWork.jsx';
 import CoursesThatMattered from './CoursesThatMattered.jsx';
 import ProgramSuggestions from './ProgramSuggestions.jsx';
 import Interactions from './Interactions.jsx';
+import Anecdote from './Anecdote.jsx';
 import Reflections from './Reflections.jsx';
 import Return from './Return.jsx';
 import Closing from './Closing.jsx';
@@ -33,6 +34,7 @@ export const slideComponents = [
   CoursesThatMattered,
   ProgramSuggestions,
   Interactions,
+  Anecdote,
   Reflections,
   Return,
   Closing,

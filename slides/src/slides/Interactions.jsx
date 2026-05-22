@@ -28,14 +28,14 @@ export default function Interactions() {
           <span className="card__tag">1:1s</span>
           <div className="card__title">Bring an option set, not a question.</div>
           <div className="card__sub" style={{ fontSize: 22 }}>
-            The expectation was &ldquo;here are two or three approaches and
-            their trade-offs&rdquo; — not &ldquo;tell me what to do&rdquo;.
-            That habit will outlast the internship.
+            &ldquo;Here are two or three approaches and their
+            trade-offs&rdquo; — not &ldquo;tell me what to do&rdquo;. That
+            habit will outlast the internship.
           </div>
         </Animated>
         <Animated as="div" animate="up" delay={660} className="card">
           <span className="card__tag">Cross-team</span>
-          <div className="card__title">Build, UI, testing — all separate teams.</div>
+          <div className="card__title">Build, UI, testing — separate teams.</div>
           <div className="card__sub" style={{ fontSize: 22 }}>
             LLVM dep, ETM session track, diff-test scaffolding — each one
             required a conversation outside the immediate team.

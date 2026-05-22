@@ -47,6 +47,21 @@ export default function Reflections() {
         Both lessons are the same lesson in different costumes: <em>specify
         before you implement, even when you do not have to.</em>
       </Animated>
+
+      <Animated as="div" animate="fade" delay={900}
+        style={{
+          marginTop: 16, fontSize: 22, lineHeight: 1.45,
+          color: 'var(--color-ink-muted)', fontStyle: 'italic',
+          maxWidth: 1500,
+        }}>
+        Exhibit A: the live final demo froze, on a trace I had walked through
+        an hour earlier and on a prep run-through the day before, on the exact
+        slice picked to show off the cumulative-cycle aggregate. The cause was
+        a real edge case I had not enumerated. The senior engineers in the
+        room treated it as routine, suggested two debugging directions, and
+        we continued. The argument for enumerating edge cases earlier does
+        not get more concrete than that.
+      </Animated>
     </SlideFrame>
   );
 }
