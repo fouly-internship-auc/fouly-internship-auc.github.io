@@ -54,7 +54,7 @@
     text(weight: "bold")[Internship dates], [2 June 2025 — 29 August 2025],
     text(weight: "bold")[Location], [London, United Kingdom],
     text(weight: "bold")[Industry supervisor], [Rasika Navarange, Software Engineer, Google],
-    text(weight: "bold")[Faculty adviser], [#text(fill: gray)[\[to be filled in\]]],
+    text(weight: "bold")[Faculty adviser], [Dr Wafik],
     text(weight: "bold")[Submitted], [Spring 2026],
   )
   #v(1fr)
