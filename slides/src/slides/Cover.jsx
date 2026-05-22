@@ -9,7 +9,7 @@ export default function Cover() {
           textTransform: 'uppercase', fontWeight: 600,
           color: '#97a0ad',
         }}>
-          The American University in Cairo · Department of Mathematics
+          The American University in Cairo · Department of Mathematics and Actuarial Science
         </div>
       </Animated>
 
@@ -39,7 +39,7 @@ export default function Cover() {
             Omar Elfouly
           </div>
           <div style={{ fontSize: 22, color: '#97a0ad', marginTop: 6 }}>
-            Mathematics · Spring 2026
+            Mathematics &amp; Computer Engineering · Spring 2026
           </div>
         </div>
         <div style={{ textAlign: 'right' }}>

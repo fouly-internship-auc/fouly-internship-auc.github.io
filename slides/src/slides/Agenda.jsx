@@ -7,7 +7,7 @@ const BEATS = [
   { tag: '02', title: 'The mathematics',
     body: 'Three lenses that made the problem tractable — relations, an affine map, and a fold.' },
   { tag: '03', title: 'The takeaway',
-    body: 'Eighteen merged changelists, one design document, and a return offer signed.' },
+    body: 'Eighteen merged changelists, a stack of design documents, and a return offer signed.' },
 ];
 
 export default function Agenda() {

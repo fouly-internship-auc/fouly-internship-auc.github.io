@@ -58,9 +58,10 @@ bespoke, and the testing infrastructure is non-trivial. Learning to
 navigate it — to read code by ripgrep'ing for symbols, to follow a
 build target through its dependencies, to find the right diff test to
 extend rather than inventing a new one — was a skill in itself. I had
-never worked in a codebase this large before. By the end of the
-internship I could move through a new feature request in the codebase
-reasonably quickly, where on my first day I could not.
+never worked in a codebase this large before. By the last few weeks
+of the internship I was answering new feature questions in the
+codebase more or less the way I answer questions about my own code
+now; on day one, I could barely find the directory.
 
 == The Cost of Skipping Edge Cases
 

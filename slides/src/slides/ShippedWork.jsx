@@ -61,8 +61,8 @@ export default function ShippedWork() {
           <div className="stat__label">merged CLs</div>
         </Animated>
         <Animated as="div" animate="pop" delay={280} className="stat">
-          <div className="stat__value" style={{ fontSize: 88, color: 'var(--color-math)' }}>1</div>
-          <div className="stat__label">major design document</div>
+          <div className="stat__value" style={{ fontSize: 88, color: 'var(--color-math)' }}>4+</div>
+          <div className="stat__label">substantial design docs</div>
         </Animated>
         <Animated as="div" animate="pop" delay={410} className="stat">
           <div className="stat__value" style={{ fontSize: 88, color: 'var(--color-warm)' }}>LLVM</div>

@@ -48,5 +48,13 @@ person I went to when an architectural question needed a definitive
 answer, and several of the anecdotes later in this report involve him
 directly.
 
+Contact information for the supervisors is as follows. Rasika
+Navarange can be reached at her Google address (#text(fill: gray)[\[Rasika's
+email here — fill in before submission\]]); Anna Mayzner and Lalit
+Maganti can be reached through their respective Google email addresses
+on the same `@google.com` domain. Formal employment verifications are
+handled by Google's HR operations at `verifications@google.com`, as
+noted on the attached employment letter.
+
 The official letter of employment from Google UK Limited is attached as
 `appendix/employment_verification.pdf`.
