@@ -141,8 +141,10 @@ engineers who made them.
 
 A small final detail belongs in this section, because it captures the
 team's tone more economically than any abstract description can. The
-internship ended with a final demo to the team. The demo itself had
-been rehearsed, the same workstation had been working perfectly twenty
+internship ended with a final demo to the wider Web Performance and
+Perfetto audience — senior engineers, junior engineers, engineers
+from adjacent teams, and the other interns. The demo itself had been
+rehearsed, the same workstation had been working perfectly twenty
 minutes earlier — and then, in the way these things sometimes go, the
 cloud dev machine I was running the demo from chose that exact moment
 to freeze. There was nothing in my code that caused it; the VM simply

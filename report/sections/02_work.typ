@@ -93,25 +93,29 @@ place on the trace timeline by an unknown amount.
 
 The right way to think about this is as a mapping between two affine
 one-dimensional spaces. If $t_("etm")$ is a timestamp in the ETM clock
-domain and $t_("sys")$ is the corresponding timestamp in the system clock
-domain, then to first order
+domain and $t_("sys")$ is the corresponding timestamp in the system
+clock domain, then to first order
 
 $ t_("sys") = alpha dot t_("etm") + beta, $
 
-where $alpha$ is the ratio of the two clock frequencies and $beta$ is a
-fixed offset. Recovering $alpha$ and $beta$ amounts to fitting an affine
-map from a small number of *synchronisation events* — moments in the trace
-where both clocks are observed at the same physical instant.
+where $alpha$ is the ratio of the two clock frequencies and $beta$ is
+a fixed offset. Recovering $alpha$ and $beta$ amounts to fitting an
+affine map against a small number of *synchronisation events* —
+moments in the trace where both clocks are observed at the same
+physical instant.
 
-I authored a comprehensive design document detailing this framework. The
-document covered how synchronisation events are identified in the raw
-trace; how the affine parameters are estimated; how they are extrapolated
-forward and backward in time; and how to detect when the affine model
-itself breaks down, for example when the hardware enters a sleep state and
-the ETM clock pauses while the system clock continues. The implementation
-itself was scoped to the version of the algorithm that handles the common,
-single-domain case; the design document explicitly captures the more
-general cases as a roadmap for future work.
+I authored a comprehensive design document covering this framework,
+the synchronisation-event identification, the form of the estimator,
+and the trade-offs between automatic and assisted mapping. The
+implementation that actually shipped, however, deliberately stops
+short of computing the affine map itself. Instead, it exposes the ETM
+timestamps alongside the system-clock timestamps on a UI plot and
+lets a human reviewer line them up visually. That sounds like a
+retreat, but it was a deliberate choice: an automatic estimator that
+is wrong by a few cycles silently is much worse than a manual mapping
+that is obviously approximate. The design document captures the
+framework that a future iteration would use to take the human out of
+the loop without sacrificing that property.
 
 == Mathematical Lens 3 — Aggregation Over Ordered Streams
 
@@ -152,9 +156,12 @@ groups roughly into four themes:
     symbolize and ETM behaviours. The LLVM symbolizer was added as a
     first-class build dependency.
   - *ETM decode* — improvements to the trace-processor side of ETM
-    decoding, including a binary-info error fix, the rename of `trace` to
-    `chunk` for clarity, the symbolisation of C++ virtual table calls, and
-    a fix to a long-standing workaround that affected zipped traces.
+    decoding, including a binary-info error fix, the rename of `trace`
+    to `chunk` for clarity, the addition of symbolisation to the ETM
+    virtual table (joining decoded ETM packets against program info to
+    surface the exact source line and instruction each packet was
+    tracing), and a fix to a long-standing workaround that affected
+    zipped traces.
   - *Aggregation* — last-seen timestamps, cumulative cycle counts, and the
     fixes to make cycle-count joins behave correctly under the new model.
   - *UI and build* — a dedicated ETM *session track* in the Perfetto UI so

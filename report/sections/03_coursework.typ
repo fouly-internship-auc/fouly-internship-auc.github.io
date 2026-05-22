@@ -25,14 +25,16 @@ small algebraic mistake were measured in millions of misaligned rows.
 
 *Linear Algebra.* The clock-alignment work is, at its heart, a one-
 dimensional affine fitting problem: given pairs $(t_("etm")^{(i)},
-t_("sys")^{(i)})$ for synchronisation events $i = 1, dots, n$, estimate
-$alpha$ and $beta$ so that $alpha dot t_("etm")^{(i)} + beta approx
-t_("sys")^{(i)}$. The habit of treating that as a linear-least-squares
-problem and reasoning about conditioning, residuals and the geometry of
-the estimator came directly from linear algebra. Even though the
-implementation that shipped is the simple, two-point version, the design
-document discusses the more general estimator in terms that would have
-been impossible to phrase carefully without the linear-algebra background.
+t_("sys")^{(i)})$ for synchronisation events $i = 1, dots, n$, the
+question is how to recover $alpha$ and $beta$ so that $alpha dot
+t_("etm")^{(i)} + beta approx t_("sys")^{(i)}$ across all of them.
+The habit of treating that as a linear-least-squares problem and
+reasoning about conditioning, residuals and the geometry of the
+estimator came directly from linear algebra. The implementation that
+shipped deliberately stops short of computing the fit and leaves it
+to a human reading the UI plot, but the design document discusses the
+more general estimator in terms that would have been impossible to
+phrase carefully without the linear-algebra background.
 
 *Graph Theory.* ETM traces are easiest to interpret in terms of the
 *control-flow graph* of the program being traced. Each basic block is a

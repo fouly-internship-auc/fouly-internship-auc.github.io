@@ -28,31 +28,32 @@ regression with ETM data.
 
 == Tooling and Build Infrastructure
 
-The internship pushed Perfetto's build system in two ways that will keep
-paying dividends after I leave. The first is the introduction of the
-LLVM symbolizer as a first-class build dependency. The PR
-`profiling: symbolizer: adds llvm symbolizer` and the supporting CI work
-in `ci: add llvm-dev to sandbox ci` make it possible for the trace
-processor to symbolise call stacks itself, rather than depending on
-external tooling. The second is the diff-test framework for ETM
+The internship pushed Perfetto's build system in two ways that will
+keep paying dividends after I leave. The first is the introduction of
+the LLVM symbolizer as a first-class build dependency. The PR
+`profiling: symbolizer: adds llvm symbolizer` and the supporting CI
+work in `ci: add llvm-dev to sandbox ci` make it possible for the
+trace processor to attach source-level symbols to ETM instruction
+ranges directly inside SQL queries, instead of forcing analysts to
+post-process traces with a separate external symbolizer. The second is the diff-test framework for ETM
 behaviours: the `tp: stdlib: adds symbolize and etm diff tests` and
 `tp: diff test: conditional etm package inclusion` PRs added the
 infrastructure required to run ETM tests conditionally in environments
 where the underlying package is available, which means the next engineer
 to touch ETM does not have to rebuild that scaffolding.
 
-== Documentation and Roadmap
+== Documentation
 
-The clock-alignment design document is, in some ways, the artefact I am
-most proud of from the internship. It is not just an implementation
-description; it is a roadmap for the next two or three iterations of the
-clock-mapping work, written carefully enough that someone joining the
-team a year from now can pick it up without me being available. The same
-is true, in a smaller way, of several of the more focused design
-documents I wrote — for the cycle-count aggregate, for the ETM session
-track in the UI, and for the structural decision to rename `trace` to
-`chunk` to remove an overload that had been confusing reviewers for
-years.
+The clock-alignment design document is, in some ways, the artefact I
+am most proud of from the internship. It captures the framework, the
+estimator, and the trade-offs argued out during review carefully
+enough that the engineer who picks up the next iteration of the work
+will not have to re-derive any of it. The same is true, in a smaller
+way, of several of the more focused design documents I wrote — for
+the cycle-count aggregate, for the ETM session track in the UI, and
+for the structural decision to rename `trace` to `chunk`, which
+removed a name overload that had been quietly confusing reviewers in
+the months leading up to the change.
 
 In short: the project came in with eighteen merged changelists,
 several substantial design documents and a number of smaller ones, and

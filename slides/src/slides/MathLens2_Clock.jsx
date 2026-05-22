@@ -23,20 +23,21 @@ export default function MathLens2Clock() {
             An affine map in one dimension
           </div>
           <div className="card__sub" style={{ fontSize: 22 }}>
-            Two unknowns: a frequency ratio &alpha; and an offset &beta;. Both
-            recovered by fitting against synchronisation events visible in
-            both domains.
+            Two unknowns: a frequency ratio &alpha; and an offset &beta;,
+            recoverable by fitting against the synchronisation events
+            visible in both domains.
           </div>
         </Animated>
         <Animated as="div" animate="up" delay={1550} className="card">
           <span className="card__tag">What I delivered</span>
           <div className="card__title" style={{ fontSize: 28 }}>
-            A design document
+            A doc, and a UI plot that lets a human do the fit
           </div>
           <div className="card__sub" style={{ fontSize: 22 }}>
-            Implementation shipped for the common single-domain case; the doc
-            captures the general estimator, the failure modes (sleep states,
-            counter overflow) and the future roadmap.
+            The shipped tool exposes both clocks side-by-side on a plot and
+            lets a reviewer align them visually. The design document
+            argues why an automatic estimator is the right next step &mdash;
+            and why it deliberately is not this step.
           </div>
         </Animated>
       </div>
