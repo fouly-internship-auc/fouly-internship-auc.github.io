@@ -52,15 +52,15 @@ reflex, open an empty design document before opening an empty file.
 
 == Operating Inside a Very Large Codebase
 
-The Perfetto repository is large. The C++ trace processor alone is on the
-order of hundreds of thousands of lines, the build system is bespoke, and
-the testing infrastructure is non-trivial. Learning to navigate it — to
-read code by ripgrep'ing for symbols, to follow a build target through
-its dependencies, to find the right diff test to extend rather than
-inventing a new one — was a skill in itself. I had never worked in a
-codebase this large before. By the end of the internship, I could open
-a new feature request, find the four or five files it would touch, and
-sketch a plan in an hour. That was not true on my first day.
+The Perfetto repository is large. The C++ trace processor alone is on
+the order of hundreds of thousands of lines, the build system is
+bespoke, and the testing infrastructure is non-trivial. Learning to
+navigate it — to read code by ripgrep'ing for symbols, to follow a
+build target through its dependencies, to find the right diff test to
+extend rather than inventing a new one — was a skill in itself. I had
+never worked in a codebase this large before. By the end of the
+internship I could move through a new feature request in the codebase
+reasonably quickly, where on my first day I could not.
 
 == The Cost of Skipping Edge Cases
 
