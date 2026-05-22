@@ -18,10 +18,10 @@ Output: `report/main.pdf`.
 ```sh
 nix develop
 cd slides
-pnpm install
-pnpm dev          # http://localhost:5173
-pnpm build        # static bundle in slides/dist
-pnpm preview      # serves the production bundle
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # static bundle in slides/dist
+npm run preview   # serves the production bundle
 ```
 
 ## Layout
