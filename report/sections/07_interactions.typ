@@ -1,15 +1,19 @@
 = Interactions with the Supervisor and the Team
 
-== Supervisor
+== Supervisor and Co-Host
 
-I met one-on-one with Rasika roughly twice a week throughout the
-internship. Early on those meetings were unusually long, because I was
-still trying to triangulate what the team actually wanted me to build
-out of a project description that, by design, left much of the
-architecture open. As the project shape stabilised the meetings shrank
-to the more typical fifteen-minute check-in, with longer meetings only
-when I had a design document on the table or when a code review had
-surfaced something architectural.
+My contact cadence with Rasika and Anna was deliberately flexible
+rather than calendar-driven: a regular weekly slot anchored the
+relationship, but the substantive conversations happened ad hoc, on
+the days when there was something concrete to discuss — a new design
+document, a stuck code review, an architectural decision that needed
+a tie-breaker. Early in the internship those conversations were
+unusually long, because I was still trying to triangulate what the
+team actually wanted me to build out of a project description that,
+by design, left much of the architecture open. As the project shape
+stabilised the meetings shrank to the more typical fifteen-minute
+check-in, with longer ones only when I had a design document on the
+table or when a code review had surfaced something architectural.
 
 The thing I valued most about how Rasika ran those check-ins was that
 she insisted on me coming with a concrete *option set* rather than an
@@ -99,28 +103,33 @@ convey to someone who has not seen it. It is also one of the reasons
 I came away respecting the seniority of the engineers on the team
 more than I have respected anyone else I have worked with.
 
-I also spent a non-trivial amount of time with engineers outside the
-immediate team. Adding the LLVM symbolizer as a build dependency
-required a conversation with the team that owns Perfetto's build
-infrastructure; the ETM session track in the UI required a conversation
-with the front-end engineers; the diff-test changes required a sign-off
-from the testing-infrastructure owner. Setting up those conversations,
-presenting the work clearly enough that the other team understood what
-I was asking for, and writing the resulting agreement down was, in
-retrospect, as much of the job as writing the code itself.
+I also spent a non-trivial amount of time with engineers outside my
+immediate point-of-contact set. Adding the LLVM symbolizer as a build
+dependency required a conversation with the team that owns Perfetto's
+build infrastructure; the ETM session track in the UI required a
+conversation with the front-end engineers; the diff-test work was
+done in close collaboration with Anna Mayzner, who had rewritten much
+of the diff-test infrastructure and was the natural sign-off on any
+plumbing changes that touched it. Setting up those conversations,
+presenting the work clearly enough that the other team understood
+what I was asking for, and writing the resulting agreement down was,
+in retrospect, as much of the job as writing the code itself.
 
 == Culture
 
 The two things I would highlight about how Google internally works,
 based on this internship, are the *code-review culture* and the *design-
-document culture*. Code reviews are not a rubber stamp; non-trivial
-changes routinely went through three or four rounds of detailed
-comments, sometimes more. That is a much slower model than the
-move-fast culture I was used to from coursework and from open-source
-contributions, and it took a few weeks to recalibrate. By the end of
-the internship I had come to genuinely prefer it: the rate at which
-work landed was slower, but the rate at which work *stayed landed*
-without follow-up reverts was much higher.
+document culture*. Code reviews are not a rubber stamp; the depth of
+review varied widely from PR to PR — a small refactor sometimes
+landed after a single round of comments, while a structural change
+could go through many — but the implicit norm was always that the
+review continued until reviewer and author had genuinely converged.
+That is a much slower model than the move-fast culture I was used to
+from coursework and from open-source contributions, and it took a few
+weeks to recalibrate. By the end of the internship I had come to
+genuinely prefer it: the rate at which work landed was slower, but
+the rate at which work *stayed landed* without follow-up reverts was
+much higher.
 
 The design-document culture is the complement of that. Most of the
 significant decisions in the project were settled in writing, in a

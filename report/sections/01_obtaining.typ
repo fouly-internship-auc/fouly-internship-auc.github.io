@@ -32,17 +32,21 @@ which is registered in England and Wales under company number 03977902.
   United Kingdom
 ])
 
-My day-to-day supervisor was *Rasika Navarange*, a Software Engineer on
-the Perfetto team. Rasika was the project owner I checked in with on
-architecture, design documents, and the broader trajectory of the work,
-and she is the author of the evaluation letter attached as
-`appendix/evaluation_letter.pdf`. Throughout the internship I also
-worked closely with *Lalit Maganti*, a senior engineer on the same
-team who acts as a technical lead for the trace-processor side of
-Perfetto. Lalit was a frequent collaborator on the code-review and
-architecture side of the work even though he was not my formal
-reporting line, and several of the anecdotes later in this report
-involve him directly.
+My internship had three points of contact on the team, all of them
+based in London. My formal host was *Rasika Navarange*, a Software
+Engineer on the Perfetto team and the person I checked in with on
+project trajectory, architecture and design documents; she is the
+author of the evaluation letter attached as
+`appendix/evaluation_letter.pdf`. My co-host was *Anna Mayzner*, also
+on the Perfetto team, who owned much of the testing infrastructure I
+ended up extending and whose review attention I leaned on heavily for
+the diff-test side of the work. The third was *Lalit Maganti*, the
+senior technical lead for the trace-processor side of Perfetto and
+the team's subject-matter expert on the parts of the codebase I was
+working in; he was not my formal reporting line, but he was the
+person I went to when an architectural question needed a definitive
+answer, and several of the anecdotes later in this report involve him
+directly.
 
 The official letter of employment from Google UK Limited is attached as
 `appendix/employment_verification.pdf`.

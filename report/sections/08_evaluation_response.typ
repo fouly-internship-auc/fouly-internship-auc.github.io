@@ -47,9 +47,27 @@ push that boundary as far back into the design phase as I can.
 
 == A Brief Word of Thanks
 
-I want to close this section by thanking Rasika directly. The evaluation
-letter is generous, but more importantly it is *specific*: it names what
-worked, names what could be better, and treats both as deserving of the
-same kind of careful attention. That is the same standard she held me
-to throughout the internship, and the version of me that returns to
-Google will be a noticeably better engineer because of it.
+I want to close this section by thanking the three engineers whose
+mentorship made the internship what it was.
+
+*Rasika Navarange*, my host, wrote the evaluation letter and ran the
+project relationship. The letter is generous, but more importantly it
+is *specific*: it names what worked, names what could be better, and
+treats both as deserving of the same kind of careful attention. That
+is the same standard she held me to throughout the internship.
+
+*Anna Mayzner*, my co-host, owned the testing-infrastructure side of
+the codebase I spent most of my time in, and was unfailingly patient
+with the procession of diff-test plumbing changes I needed to land
+through her side of the world. The diff-test work in this internship
+would not exist in its current shape without her.
+
+*Lalit Maganti*, the trace-processor tech lead, was the subject-matter
+expert I went to when a question genuinely needed an authoritative
+answer. Several of the anecdotes earlier in this report involve him
+directly; a great deal of what I learned about how to argue for a
+design decision in writing came out of trying, and frequently
+failing, to argue one past him.
+
+The version of me that returns to Google will be a noticeably better
+engineer because of all three.

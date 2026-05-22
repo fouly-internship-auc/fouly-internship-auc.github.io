@@ -8,21 +8,34 @@ export default function TeamAndProduct() {
       title="Web Performance · Perfetto"
       subtitle="Open-source performance instrumentation and trace analysis. The tool Android, Chrome and server engineers reach for when nanoseconds matter."
     >
-      <div className="grid-cards grid-cards--3" style={{ marginTop: 16 }}>
-        <Animated as="div" animate="up" delay={200} className="card">
+      <div className="grid-cards grid-cards--4" style={{ marginTop: 16 }}>
+        <Animated as="div" animate="up" delay={150} className="card">
           <span className="card__tag">Where</span>
-          <div className="card__title">Google UK</div>
-          <div className="card__sub">Belgrave House, London SW1W 9TQ.</div>
+          <div className="card__title" style={{ fontSize: 24 }}>Google UK</div>
+          <div className="card__sub" style={{ fontSize: 18 }}>
+            Belgrave House, London SW1W 9TQ.
+          </div>
         </Animated>
-        <Animated as="div" animate="up" delay={350} className="card">
-          <span className="card__tag">Supervisor</span>
-          <div className="card__title">Rasika Navarange</div>
-          <div className="card__sub">Software Engineer, Perfetto team.</div>
+        <Animated as="div" animate="up" delay={280} className="card">
+          <span className="card__tag">Host</span>
+          <div className="card__title" style={{ fontSize: 24 }}>Rasika Navarange</div>
+          <div className="card__sub" style={{ fontSize: 18 }}>
+            Software Engineer, Perfetto. Wrote the evaluation letter.
+          </div>
         </Animated>
-        <Animated as="div" animate="up" delay={500} className="card">
-          <span className="card__tag">Codebase</span>
-          <div className="card__title">google/perfetto</div>
-          <div className="card__sub">Public, open-source, C++ &amp; TypeScript.</div>
+        <Animated as="div" animate="up" delay={410} className="card">
+          <span className="card__tag">Co-host</span>
+          <div className="card__title" style={{ fontSize: 24 }}>Anna Mayzner</div>
+          <div className="card__sub" style={{ fontSize: 18 }}>
+            Testing-infrastructure owner, diff-test plumbing.
+          </div>
+        </Animated>
+        <Animated as="div" animate="up" delay={540} className="card">
+          <span className="card__tag">Subject expert</span>
+          <div className="card__title" style={{ fontSize: 24 }}>Lalit Maganti</div>
+          <div className="card__sub" style={{ fontSize: 18 }}>
+            Senior TL, trace processor.
+          </div>
         </Animated>
       </div>
 

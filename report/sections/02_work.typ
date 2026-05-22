@@ -20,14 +20,15 @@ align, query and visualise ETM data" was the gap I was hired to close.
 
 == The Problem: ETM Traces
 
-ETM is the on-die hardware that emits a cycle-accurate, lossless record of
-which instructions a CPU executed and roughly when. The packet stream that
-comes out of it is dense — a saturated trace can easily hit gigabytes a
-second per core — and the documentation that explains how to parse it is
-thin, scattered across ARM architecture manuals, kernel headers and the
-source of an external decoder library. The packets are also expressed in
-*their own time domain*: a hardware clock that does not directly line up
-with the kernel timestamps that the rest of Perfetto uses.
+ETM is the on-die hardware that emits a cycle-accurate, lossless record
+of which instructions a CPU executed and roughly when. The packet
+stream that comes out of it is dense — a saturated trace can easily hit
+gigabytes a second per core — and the documentation that explains how
+to parse it is thin, scattered across ARM architecture manuals, kernel
+headers and Perfetto's own decoder, to which I ended up contributing
+non-trivial pieces myself. The packets are also expressed in *their
+own time domain*: a hardware clock that does not directly line up with
+the kernel timestamps that the rest of Perfetto uses.
 
 In other words, before any of this data was useful inside Perfetto, three
 things had to be true:

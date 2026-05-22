@@ -39,13 +39,16 @@ alternatives. The act of writing it forces you to enumerate the
 alternatives in the first place; the act of circulating it forces you to
 make the argument legible to someone who is not in your head.
 
-I wrote a comprehensive design document for the clock-mapping framework
-and several smaller ones for individual subsystems. Each of them caught
-problems that I would otherwise have caught only in code review, at which
-point fixing them would have cost an order of magnitude more time. By the
-end of the internship I had internalised the habit: when the next problem
-arrives I will, by reflex, open an empty design document before opening
-an empty file.
+I wrote several substantial design documents during the internship —
+the clock-mapping framework was the heaviest, but the cumulative-cycle
+aggregate, the diff-test plumbing, and the structural rework around
+the `trace`/`chunk` distinction each had their own document long
+enough to be argued over by reviewers before any code was committed.
+Each of them caught problems that I would otherwise have caught only
+in code review, at which point fixing them would have cost an order
+of magnitude more time. By the end of the internship I had
+internalised the habit: when the next problem arrives I will, by
+reflex, open an empty design document before opening an empty file.
 
 == Operating Inside a Very Large Codebase
 

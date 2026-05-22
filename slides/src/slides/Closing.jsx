@@ -33,23 +33,25 @@ export default function Closing() {
 
       <Animated as="div" animate="up" delay={700}
         style={{
-          marginTop: 80, display: 'flex', gap: 60,
-          fontSize: 22, color: '#97a0ad',
+          marginTop: 80, display: 'flex', gap: 50, flexWrap: 'wrap',
+          fontSize: 20, color: '#97a0ad',
         }}>
         <div>
-          <div style={{ color: '#fff', fontSize: 26, marginBottom: 4 }}>
+          <div style={{ color: '#fff', fontSize: 24, marginBottom: 4 }}>
             Omar Elfouly
           </div>
           omarelfouly29@gmail.com
         </div>
         <div>
-          <div style={{ color: '#fff', fontSize: 26, marginBottom: 4 }}>
-            Supervisor
+          <div style={{ color: '#fff', fontSize: 24, marginBottom: 4 }}>
+            With thanks to
           </div>
-          Rasika Navarange · Google
+          Rasika Navarange (host) &middot;{' '}
+          Anna Mayzner (co-host) &middot;{' '}
+          Lalit Maganti (TL)
         </div>
         <div>
-          <div style={{ color: '#fff', fontSize: 26, marginBottom: 4 }}>
+          <div style={{ color: '#fff', fontSize: 24, marginBottom: 4 }}>
             Internship dates
           </div>
           2 June &mdash; 29 August 2025

@@ -54,11 +54,12 @@ track in the UI, and for the structural decision to rename `trace` to
 `chunk` to remove an overload that had been confusing reviewers for
 years.
 
-In short: the project came in with eighteen merged changelists, one
-substantial design document, several smaller ones, and a non-trivial
-amount of cleanup work on the surrounding build, test and documentation
-infrastructure. The senior tech lead on the team noted that he considered
-this project "one of the most challenging intern projects [he] had ever
-seen" — a remark that lives in the evaluation letter — and the fact that
-it landed in a usable state, in the public repository, is the most
-concrete way I can summarise the contribution.
+In short: the project came in with eighteen merged changelists,
+several substantial design documents and a number of smaller ones, and
+a non-trivial amount of cleanup work on the surrounding build, test
+and documentation infrastructure. Lalit Maganti, the team's senior trace-processor tech
+lead, noted that he considered this project "one of the most
+challenging intern projects [he] had ever seen" — a remark that lives
+in the evaluation letter — and the fact that it landed in a usable
+state, in the public repository, is the most concrete way I can
+summarise the contribution.
