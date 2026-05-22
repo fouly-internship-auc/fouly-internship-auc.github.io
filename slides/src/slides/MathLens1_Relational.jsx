@@ -15,16 +15,20 @@ export default function MathLens1Relational() {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 22 }}>
           <Animated as="p" animate="up" delay={150}
             style={{ fontSize: 28, lineHeight: 1.4, margin: 0 }}>
-            Decoded ETM data is reshaped into <em>execution intervals</em>:
+            Decoded ETM data is reshaped into a virtual SQL table:
           </Animated>
 
           <Animated as="div" animate="pop" delay={300}
             className="math-block"
             style={{
               background: 'var(--color-math-soft)',
-              borderRadius: 12, padding: '20px 28px', fontSize: 28,
+              borderRadius: 12, padding: '20px 28px',
+              fontSize: 22, fontFamily: 'var(--font-mono)',
+              textAlign: 'left', lineHeight: 1.5,
             }}>
-            (cpu, addr_start, addr_end, cycle, ts)
+            element_type, timestamp, cycle_count,<br/>
+            last_seen_timestamp, cumulative_cycles,<br/>
+            isa, instruction_range, &hellip;
           </Animated>
 
           <Animated as="p" animate="up" delay={500}

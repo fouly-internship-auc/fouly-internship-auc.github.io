@@ -7,14 +7,18 @@ I expect to carry into the rest of my career, they would be these.
 == Working in Ambiguity
 
 The first month of the internship was, by some distance, the hardest of
-the three. The official ARM documentation for ETM is sparse and assumes a
-reader who already knows the hardware; the existing decoder library
-documents its public API but not its internal model; the existing usage of
-ETM inside Perfetto consisted of a small experimental subset of features
-that nobody on the team had touched in months. I spent the first two
-weeks doing essentially no coding at all, just reading the ARM
-architecture manual end-to-end and taking notes on what each ETM packet
-type was actually saying.
+the three. The official ARM documentation for ETM is sparse and assumes
+a reader who already knows the hardware; the existing decoder library
+documents its public API but not its internal model; the existing usage
+of ETM inside Perfetto consisted of a small experimental subset of
+features that nobody on the team had touched in months. I spent the
+first two weeks deliberately reading the ARM architecture manual at the
+pace of the slowest engineer who has ever joined the team — taking
+notes on what each ETM packet type was actually saying and writing
+small throwaway coding examples to convince myself that I had
+understood what I was reading. The reading never really stopped during
+the rest of the internship, but those first two weeks were the moment
+in which it had to be the primary activity.
 
 Before this internship I had associated "doing well" with "writing a lot
 of correct code quickly". The first month forced me to update that. The

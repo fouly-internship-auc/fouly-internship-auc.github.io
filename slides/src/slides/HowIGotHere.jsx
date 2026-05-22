@@ -2,10 +2,10 @@ import { Animated } from '../components/Animated.jsx';
 import { SlideFrame } from '../components/SlideFrame.jsx';
 
 const STEPS = [
-  { tag: 'Heard', label: 'Friend already at Google forwarded the open req.' },
-  { tag: 'Applied', label: 'Submitted via Google Careers — no formal referral.' },
-  { tag: 'Interviewed', label: 'Recruiter screen → two coding rounds → team chat.' },
-  { tag: 'Joined', label: 'Web Performance / Perfetto team, London office.' },
+  { tag: 'Referred', label: 'A friend already interning at Google sent me a referral and coached me on the loop.' },
+  { tag: 'Applied', label: 'EMEA SWE Internship cycle, via Google Careers.' },
+  { tag: 'Interviewed', label: 'Recruiter screen → two coding rounds → host match.' },
+  { tag: 'Joined', label: 'Web Performance · Perfetto team, London office.' },
 ];
 
 export default function HowIGotHere() {

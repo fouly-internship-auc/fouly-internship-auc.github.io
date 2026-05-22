@@ -50,13 +50,18 @@ joined and filtered across those relations.
 
 To make ETM fit this idiom I designed and implemented a family of *SQL
 table-valued functions* and *virtual tables* that present ETM packet
-streams as ordinary relations. Concretely, the unit of data I worked with
-is the *execution interval*: a tuple of the form
+streams as ordinary relations. The central virtual table is the
+*decoded-chunk* table, whose row schema includes
+`element_type`, `timestamp`, `cycle_count`, `last_seen_timestamp`,
+`cumulative_cycles`, `isa`, an embedded `instruction_range`, and
+several other diagnostic columns. The `last_seen_timestamp` and
+`cumulative_cycles` columns in particular were added by my PRs
+\#2643 and \#2706; they make per-row aggregate state directly
+queryable without an explicit user-side window.
 
-$ (text("cpu"), text("address_start"), text("address_end"), text("cycle"), text("ts")) $
-
-so that questions like "which symbols were active when this slice ran?"
-reduce to ordinary relational joins. Many of those joins are
+With the data in that shape, questions like "which symbols were
+active when this slice ran?" reduce to ordinary relational joins
+against the symbol-range relation. Many of those joins are
 *interval-against-interval* joins, where two rows match when their
 half-open address or time ranges intersect:
 
