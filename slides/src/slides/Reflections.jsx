@@ -47,19 +47,6 @@ export default function Reflections() {
         Both lessons are the same lesson in different costumes: <em>specify
         before you implement, even when you do not have to.</em>
       </Animated>
-
-      <Animated as="div" animate="fade" delay={900}
-        style={{
-          marginTop: 16, fontSize: 22, lineHeight: 1.45,
-          color: 'var(--color-ink-muted)', fontStyle: 'italic',
-          maxWidth: 1500,
-        }}>
-        Exhibit A: the live final demo froze — first time it had done so,
-        despite a clean prep run the day before. The cause was an edge case
-        I simply had not enumerated ahead of time. The room treated it as
-        routine. The argument for enumerating edge cases earlier does not
-        get more concrete than that.
-      </Animated>
     </SlideFrame>
   );
 }

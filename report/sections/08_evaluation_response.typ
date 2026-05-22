@@ -27,31 +27,6 @@ that list as a required section of the document. That changes the
 default from "consider edge cases when something goes wrong" to
 "enumerate edge cases as part of the design phase".
 
-== A Brief Diversion in Defence of Anticipating Edge Cases
-
-I want to attach a small story to this. The internship culminates in a
-final demo to the team. I had prepared, I had rehearsed, I had done a
-clean run-through with my supervisor the day before. The live demo
-froze anyway — first time it had done that — in front of the senior
-engineers I had been working with for three months. The same trace,
-the same machine, the same UI that had behaved perfectly an hour
-earlier locked up live, and the failure turned out to trace back to
-an edge case I had simply not enumerated ahead of time.
-
-What makes the story relevant to this report rather than just
-embarrassing is the room's reaction. Demo freezes, the implicit
-assumption seemed to be, are a normal part of the work, and the
-interesting question is what you do next. Nobody flinched; the
-conversation moved on; I learned what I needed to fix from the
-debugging that followed.
-
-It is the cleanest argument I have, in my own experience, for the
-"anticipate edge cases earlier" feedback. Even after preparation, even
-after a successful rehearsal, the case I had not written down on a
-failure-modes list ahead of time was the one that fired live. Going
-forward, the failure-modes section of every design document will be
-where I start, not where I finish.
-
 == Initial Architectural Choices
 
 The second observation is that some of my initial implementations

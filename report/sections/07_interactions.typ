@@ -129,3 +129,16 @@ experience of being inside the culture rather than outside it gave me a
 much better sense of *why* it works: it externalises decisions that
 would otherwise live, brittle and undocumented, inside the heads of the
 engineers who made them.
+
+A small final detail belongs in this section, because it captures the
+team's tone more economically than any abstract description can. The
+internship ended with a final demo to the team. The demo itself had
+been rehearsed, the same workstation had been working perfectly twenty
+minutes earlier — and then, in the way these things sometimes go, the
+cloud dev machine I was running the demo from chose that exact moment
+to freeze. There was nothing in my code that caused it; the VM simply
+stopped responding. What was telling was the room's reaction. No-one
+flinched. Someone made the standard joke about the demo gods. We
+rebooted, picked up where we had left off, and the conversation moved
+on. Demos go wrong, the implicit assumption seemed to be, and the
+interesting question is what you do next.
