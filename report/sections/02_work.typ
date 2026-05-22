@@ -129,13 +129,14 @@ These questions are folds (in the functional-programming sense) or scans
 Concretely, for the cumulative cycle count over an instruction range $R$,
 the aggregate I implemented computes
 
-$ C(R) = sum_(r in cal(I), r.text("addr") in R) r.text("cycles"), $
+$ C(R) = sum_(r in cal(I), r.text("instruction_range") subset.eq R) r.text("cycle_count"), $
 
-where $cal(I)$ is the set of decoded execution intervals. The
-*last-seen-timestamp* aggregate is the analogous `max` over `ts`. Both are
-exposed as user-defined aggregate functions in the SQL surface so that
-analysts and product engineers can use them in the same queries they use
-for any other counter.
+where $cal(I)$ is the set of decoded execution intervals from the
+virtual table introduced above. The *last-seen-timestamp* aggregate is
+the analogous `max` over `timestamp`. Both are exposed as user-defined
+aggregate functions in the SQL surface so that analysts and product
+engineers can use them in the same queries they use for any other
+counter.
 
 The PRs `tp: etm: adds last seen timestamp and cumulative cycles` and
 `tp: etm: fix cycle count for joins` are the load-bearing changes in this

@@ -63,20 +63,6 @@ of the internship I was answering new feature questions in the
 codebase more or less the way I answer questions about my own code
 now; on day one, I could barely find the directory.
 
-== The Cost of Skipping Edge Cases
-
-The supervisor's evaluation letter flags two areas where my performance
-could improve, and I want to address them honestly in this report. The
-first is that I do not, by default, anticipate edge cases early enough.
-I would do well to spend more time at the start of a problem listing
-out the failure modes — the empty input, the saturated buffer, the
-clock that runs backwards, the trace that is split across files — and
-deciding which ones the implementation has to handle versus which ones
-the design can rule out. I caught most of these in review, but I want
-the next intern's design document to say "we will handle the following
-edge cases, and we will explicitly not handle the following others, for
-the following reasons" on page one.
-
 == Mathematics at Industrial Scale
 
 The shape of the work surprised me. I had assumed, going in, that the

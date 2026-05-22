@@ -64,10 +64,24 @@ course built around symbolic algebra, finite-set manipulation and proof
 checking would teach the same operational skill, in a way that is more
 likely to take.
 
-I want to close this section by emphasising what the programme *did* get
-right. The courses I leaned on most during this internship — discrete
-mathematics, linear algebra, graph theory, probability and statistics —
-were taught at a standard high enough that I was able to walk into a
-conversation about relational algebra, affine fitting and graph
-reachability at a senior-engineer table and contribute meaningfully. The
-suggestions above are about extending that foundation, not replacing it.
+== On Removals
+
+The guideline also asks which courses should be *removed* from the
+programme. The honest answer is: none that I would recommend cutting
+on the basis of this one internship. The courses I leaned on most
+earned every hour I spent on them, and the courses I did not lean on
+directly during the internship — real analysis, the more abstract
+algebra coursework — are the kind of structural foundation whose
+absence is felt much later in a career than the timescale of a
+thirteen-week internship can fairly judge. I would not remove
+anything; the suggestions above are about *adding to* the offering,
+not replacing it.
+
+I want to close this section by emphasising what the programme *did*
+get right. The courses I leaned on most during this internship —
+discrete mathematics, linear algebra, graph theory, probability and
+statistics — were taught at a standard high enough that I was able to
+walk into a conversation about relational algebra, affine fitting and
+graph reachability at a senior-engineer table and contribute
+meaningfully. The additions above build on that foundation rather
+than displacing any part of it.
