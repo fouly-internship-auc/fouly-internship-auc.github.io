@@ -49,9 +49,9 @@
     column-gutter: 1.4em,
     row-gutter: 0.8em,
     align: (right, left),
-    text(weight: "bold")[Intern], [Omar Elfouly],
+    text(weight: "bold")[Name], [Omar Elfouly],
     text(weight: "bold")[Major], [Mathematics and Computer Engineering],
-    text(weight: "bold")[Submitted for], [Mathematics practical-internship course],
+    text(weight: "bold")[Submitted for], [Mathematics practical internship course],
     text(weight: "bold")[Internship dates], [2 June 2025 — 29 August 2025],
     text(weight: "bold")[Location], [London, United Kingdom],
     text(weight: "bold")[Industry supervisor], [Rasika Navarange, Software Engineer, Google],
@@ -59,7 +59,6 @@
     text(weight: "bold")[Submitted], [Spring 2026],
   )
   #v(1fr)
-  #text(size: 9pt, fill: gray)[Adapted from the AUC practical-internship guidelines.]
 ]
 #pagebreak()
 #set page(numbering: "1")
