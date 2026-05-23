@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
+
 const DESIGN_W = 1920;
 const DESIGN_H = 1080;
 const OVERLAY_HIDE_MS = 1600;
@@ -88,9 +89,17 @@ export function DeckStage({ children }) {
     <div className="deck-stage" ref={stageRef}>
       <div className="deck-stage__canvas" ref={canvasRef}>
         {slides.map((child, i) => (
-          <SlideHost key={i} active={i === index}>
+          // Each slide is wrapped in a positioned slot. The slot — not the
+          // slide component itself — carries `data-deck-active`, which is
+          // what styles.css uses to flip the slide from hidden to visible
+          // and to trigger the `.anim` reveal animations inside.
+          <div
+            key={i}
+            className="deck-slot"
+            data-deck-active={i === index ? '' : undefined}
+          >
             {child}
-          </SlideHost>
+          </div>
         ))}
       </div>
       <div className="deck-stage__overlay" data-visible={overlayVisible || undefined}>
@@ -101,16 +110,4 @@ export function DeckStage({ children }) {
       </div>
     </div>
   );
-}
-
-// Tiny wrapper so each child gets the right data attribute without authors
-// having to remember to set it. We clone the element and inject the prop.
-import { cloneElement, isValidElement } from 'react';
-function SlideHost({ active, children }) {
-  if (!isValidElement(children)) return children;
-  const existing = children.props.className || '';
-  return cloneElement(children, {
-    className: existing,
-    'data-deck-active': active ? '' : undefined,
-  });
 }

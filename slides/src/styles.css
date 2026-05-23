@@ -100,7 +100,7 @@ html, body, #root {
 /* ── Animation primitives (mirrors kws-soc-deck) ────────────────────── */
 
 .anim { opacity: 0; transform: translateY(8px); transition: opacity var(--anim-med) var(--ease-out), transform var(--anim-med) var(--ease-out); }
-.deck-stage [data-deck-active] .anim { opacity: 1; transform: none; }
+.deck-slot[data-deck-active] .anim { opacity: 1; transform: none; }
 .anim-fade { /* default */ }
 .anim-ease {
   transition: opacity var(--anim-slow) var(--ease-out),
@@ -115,7 +115,7 @@ html, body, #root {
   transition: opacity var(--anim-med) var(--ease-out),
               transform var(--anim-med) var(--ease-spring);
 }
-.deck-stage [data-deck-active] .anim-pop { transform: scale(1); }
+.deck-slot[data-deck-active] .anim-pop { transform: scale(1); }
 
 /* ── Reusable layout primitives ─────────────────────────────────────── */
 
@@ -267,12 +267,15 @@ deck-stage {
   flex-shrink: 0;
   box-shadow: 0 30px 80px rgba(0,0,0,0.4);
 }
-.deck-stage__canvas > .slide {
+.deck-stage__canvas > .deck-slot {
+  position: absolute;
+  inset: 0;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  transition: opacity var(--anim-med) var(--ease-out);
 }
-.deck-stage__canvas > .slide[data-deck-active] {
+.deck-stage__canvas > .deck-slot[data-deck-active] {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -302,7 +305,7 @@ deck-stage {
   deck-stage, .deck-stage, .deck-stage__canvas { all: unset; display: block; }
   .deck-stage__canvas { width: 1920px; height: 1080px; }
   .deck-stage__overlay { display: none !important; }
-  .deck-stage__canvas > .slide {
+  .deck-stage__canvas > .deck-slot {
     position: relative !important;
     inset: auto !important;
     width: 1920px;
@@ -313,7 +316,7 @@ deck-stage {
     break-after: page;
     page-break-after: always;
   }
-  .deck-stage__canvas > .slide:last-child {
+  .deck-stage__canvas > .deck-slot:last-child {
     break-after: auto;
     page-break-after: auto;
   }

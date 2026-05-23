@@ -33,24 +33,6 @@ make help            # list every target
 | `make deploy-watch` | Tail the latest deploy run                            |
 | `make clean`        | Remove every build artefact                           |
 
-## Hosting setup (first time only)
-
-1. Create a GitHub user **or** org with the login `fouly-internship-auc`.
-2. Under it, create a repository named `fouly-internship-auc.github.io`
-   (the matching repo name is what makes the GitHub Pages user/org site
-   live at the root of `fouly-internship-auc.github.io`).
-3. Point this repo at it and push `main`:
-
-   ```sh
-   git remote add origin git@github.com:fouly-internship-auc/fouly-internship-auc.github.io.git
-   git push -u origin main
-   ```
-
-4. In the GitHub repo, open **Settings → Pages** and set
-   **Source: GitHub Actions**.
-5. Every push to `main` after that will rebuild and redeploy. To trigger
-   a deploy without a new commit, run `make deploy`.
-
 ## Layout
 
 ```
