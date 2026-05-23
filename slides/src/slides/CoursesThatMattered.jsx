@@ -13,9 +13,12 @@ const MATH = [
 ];
 
 const CS = [
-  { title: 'Algorithms &amp; Data Structures', note: 'Interval trees, join cost.' },
-  { title: 'Databases', note: 'The trace processor is a database. Literally.' },
-  { title: 'Computer Architecture', note: 'ARM, pipelines, PMU, hardware clocks.' },
+  { title: 'Algorithms &amp; Data Structures',
+    note: 'Complexity analysis, efficient implementation. Right data structure for the inner loop.' },
+  { title: 'Databases',
+    note: 'Query cost, join algorithms, predicate push-down. The trace processor is a database, literally.' },
+  { title: 'Computer Architecture',
+    note: 'ARM, pipelines, PMU, hardware clocks.' },
 ];
 
 export default function CoursesThatMattered() {

@@ -54,33 +54,38 @@ analyses I built or extended over the internship were counting and
 binning exercises on top of hundreds of millions of decoded packets:
 empirical distributions over branch-not-taken events, event rates at
 various points of execution, ratios of cycles spent in one address
-range against another. The distinction between systematic error and
-random noise that probability courses train into you was also
-exactly the distinction I needed whenever a divergence between two
-counters had to be classified as a bug or an artefact.
+range against another. 
 
-== Adjacent Computer Science Courses
+== Computer Science Courses
 
 The mathematics courses gave me the lens; a few computer-science courses
-gave me the implementation vocabulary I needed in order to operate inside
-a large open-source codebase.
+gave me the implementation skills I needed in order to implement my changes.
 
-*Algorithms and Data Structures* was the course that turned the
-relational-query-cost work from intuition into vocabulary. Interval
-trees, sorted-merge joins, hash joins, and the asymptotic arguments
-that decide between them are not abstract objects for someone who
-has had to argue about them in a course assignment, and that
-grounding came back on every design review for the cycle-count join
-work — usually as the answer to "why will this be fast on a hundred
-million rows".
+*Algorithms and Data Structures* was the course that gave me the
+discipline of asymptotic reasoning and the vocabulary for choosing
+between data structures and algorithms by their cost profile rather
+than by familiarity. Once I started writing C++ inside Perfetto's
+trace processor, that habit was the difference between an inner loop
+that shipped and one that came back at review with a worse big-O
+than the function it was replacing. Most of the implementation-level
+choices on the ETM decoder and the cycle-count machinery — which
+container, which traversal order, which guard against pathological
+input — came out of that course.
 
-*Databases* was the course that turned out to overlap almost perfectly
-with the day-to-day work. Perfetto's trace processor is a database
-engine — specialised to performance traces, tuned hard for very tall
-relations, but a database engine nonetheless — and a large fraction
-of the design discussions I participated in could have been
-transposed directly into a databases-course problem set on cost
-models and query planning.
+*Databases* was the course that turned out to overlap almost
+perfectly with the day-to-day work, and it is the course that owns
+the relational-query-cost lens from earlier in the report. Perfetto's
+trace processor is a database engine — specialised to performance
+traces, tuned hard for very tall relations, but a database engine
+nonetheless. The specific join algorithms the engine reaches for
+(sorted-merge against hash against the interval-aware
+specialisations), how predicates push through them, where
+intermediate relations get materialised, and what the row counts
+look like at each stage: every one of those conversations could have
+been transposed directly into a databases-course problem set on cost
+models and query planning. The "why will this be fast on a hundred
+million rows" question that came up in every cycle-count join review
+was, in the end, a databases question.
 
 *Computer Architecture* was the course that let me read the ARM ETM
 specification without feeling lost. Concepts like instruction pipelines,
