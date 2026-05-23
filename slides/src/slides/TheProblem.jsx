@@ -23,8 +23,8 @@ export default function TheProblem() {
           </Animated>
           <p style={{ fontSize: 26, lineHeight: 1.4, margin: 0,
             color: 'var(--color-ink-muted)' }}>
-            Cycle-accurate. Lossless. Per-CPU. Up to gigabytes per second
-            per core when saturated.
+            Cycle-accurate. Per-CPU. Up to gigabytes per second per core
+            when saturated.
           </p>
         </Animated>
 
@@ -45,8 +45,8 @@ export default function TheProblem() {
           </div>
           <Animated as="div" animate="fade" delay={900}
             className="callout callout--warm" style={{ fontSize: 26 }}>
-            Each turned out to be a mathematics question dressed as an
-            engineering one.
+            Each turned out to be a question with both engineering and
+            mathematical themes.
           </Animated>
         </Animated>
       </div>

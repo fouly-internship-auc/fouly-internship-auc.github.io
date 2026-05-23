@@ -12,9 +12,9 @@ export default function WhatIsETM() {
           <span className="card__tag">What it is</span>
           <div className="card__title">On-die hardware</div>
           <div className="card__sub">
-            ARM cores can emit a lossless stream of what they execute, cycle
-            by cycle. Most ARM SoCs in the wild ship with it; very few teams
-            actually use it.
+            ARM cores can emit a cycle-accurate record of which
+            instructions they execute. Most ARM SoCs in the wild ship
+            with the capability; very few teams actually use it.
           </div>
         </Animated>
         <Animated as="div" animate="up" delay={320} className="card">
