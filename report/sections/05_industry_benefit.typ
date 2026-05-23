@@ -42,12 +42,20 @@ it possible for the trace processor to attach source-level symbols to
 ETM instruction ranges directly inside SQL queries, instead of forcing
 analysts to post-process traces with a separate external symbolizer.
 
-The second is the diff-test framework for ETM behaviours: the
-`tp: stdlib: adds symbolize and etm diff tests` and `tp: diff test:
-conditional etm package inclusion` PRs added the infrastructure
-required to run ETM tests conditionally in environments where the
-underlying package is available, which means the next engineer to
-touch ETM does not have to rebuild that scaffolding.
+The second is *conditional diff tests based on configuration* — a
+general extension of Perfetto's diff-test framework that lets a given
+test declare the build configuration it requires and runs only when
+that configuration is actually present on the build machine. PR
+`tp: diff_tests: adds optional diff tests based on config` is the
+framework change; PRs `tp: diff test: conditional etm package
+inclusion` and `tp: stdlib: adds symbolize and etm diff tests` were
+the first consumers, gating ETM and LLVM-symbolize tests on the
+availability of the underlying packages. The mechanism is general:
+any future test in Perfetto with configuration requirements can use
+the same plumbing, and the diff-test framework no longer has to
+choose between turning a test off globally and accepting the noise
+when it fails on a machine that isn't set up for it. The feature
+grew out of the design exchange recounted later in this report.
 
 == Documentation
 
