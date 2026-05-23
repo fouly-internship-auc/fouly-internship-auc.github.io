@@ -45,8 +45,7 @@ Each of these turned out to be questions with both engineering and mathematical 
 The dominant idiom inside the Perfetto trace processor is relational,
 and almost everything around it is written in *Perfetto SQL itself*:
 the standard library, the analysis primitives, the table-valued
-functions, the diff tests. Adding a new capability to Perfetto, nine
-times out of ten, means writing more SQL rather than more C++.
+functions, the diff tests. Adding a new capability to Perfetto often means writing more SQL rather than more C++ (not true in my case).
 
 To make ETM fit this idiom I designed and implemented a family of
 *SQL table-valued functions* and *virtual tables* that present ETM
@@ -85,8 +84,7 @@ re-scan of an intermediate relation that a slightly different
 phrasing would have allowed it to skip.
 
 A meaningful fraction of the design-review conversation on the ETM
-join PRs — notably `tp: etm: improve etm decode` and `tp: etm: fix
-cycle count for joins` — was therefore not about whether a query was
+join PRs — notably `tp: etm: improve etm decode` and `tp: etm: fix cycle count for joins` — was therefore not about whether a query was
 algebraically right but about whether it was *cheap*: how the engine
 would decompose it, how the predicate-push-down would route through
 it, what the row counts at each intermediate stage would look like.
@@ -97,38 +95,50 @@ of the internship.
 
 == Mathematical Lens 2 — Aligning Two Clocks
 
-The ETM packet stream carries its own timestamp counter. That counter is
-driven by a *hardware clock* whose frequency, phase, and even start moment
-are independent of the kernel's `CLOCK_MONOTONIC`, which is the clock the
-rest of Perfetto trusts. If we treated the ETM timestamps as if they were
-already system timestamps, every ETM instruction would land in the wrong
-place on the trace timeline by an unknown amount.
+The ETM packet stream carries its own timestamp counter. That counter
+is driven by a *hardware clock* whose frequency, phase, and even
+start moment are independent of the kernel's `CLOCK_MONOTONIC`, which
+is the clock the rest of Perfetto trusts. If we treated the ETM
+timestamps as if they were already system timestamps, every ETM
+instruction would land in the wrong place on the trace timeline by
+an unknown amount.
 
 The right way to think about this is as a mapping between two affine
-one-dimensional spaces. If $t_("etm")$ is a timestamp in the ETM clock
-domain and $t_("sys")$ is the corresponding timestamp in the system
-clock domain, then to first order
+one-dimensional spaces. If $t_("etm")$ is a timestamp in the ETM
+clock domain and $t_("sys")$ is the corresponding timestamp in the
+system clock domain, then to first order
 
 $ t_("sys") = alpha dot t_("etm") + beta, $
 
-where $alpha$ is the ratio of the two clock frequencies and $beta$ is
-a fixed offset. Recovering $alpha$ and $beta$ amounts to fitting an
-affine map against a small number of *synchronisation events* —
-moments in the trace where both clocks are observed at the same
-physical instant.
+where $alpha$ is the ratio of the two clock frequencies and $beta$
+is a fixed offset.
 
-I authored a comprehensive design document covering this framework,
-the synchronisation-event identification, the form of the estimator,
-and the trade-offs between automatic and assisted mapping. The
-implementation that actually shipped, however, deliberately stops
-short of computing the affine map itself. Instead, it exposes the ETM
-timestamps alongside the system-clock timestamps on a UI plot and
-lets a human reviewer line them up visually. That sounds like a
-retreat, but it was a deliberate choice: an automatic estimator that
-is wrong by a few cycles silently is much worse than a manual mapping
-that is obviously approximate. The design document captures the
-framework that a future iteration would use to take the human out of
-the loop without sacrificing that property.
+The interesting part of this lens is not the model — the model was
+obvious once stated — but the path from the wrong solution to the
+right one.
+
+My initial direction, which I worked into a design document over the
+course of several iterations, was to recover $alpha$ and $beta$ from
+the trace itself. The plan was a *sidecar trace*: a parallel stream
+of explicit synchronisation markers in both clock domains, captured
+alongside the main ETM trace, fit at the end by treating the two
+sequences as a one-dimensional regression problem. That approach was
+workable but unsatisfying. It added a second tracing stream, it
+introduced its own failure modes, and it spent inference effort on
+parameters that the hardware already knew but was not being asked
+to report.
+
+The eventual resolution was simpler. The device exposes its clock
+configuration directly, in an internal register that the trace
+prologue can read at the moment tracing begins. Read once, parsed
+into $(alpha, beta)$, the affine map then applies to every subsequent
+ETM timestamp by construction. No fitting, no sidecar trace, no
+synchronisation events. The design document survives in part as the
+record of arriving at the simpler answer the long way round, which
+is itself representative of how a non-trivial fraction of the
+internship's design work proceeded: write down the obvious-looking
+solution, argue with it for a week, find the one a serious hardware
+person would have written down on day one.
 
 == Mathematical Lens 3 — Aggregation Over Ordered Streams
 

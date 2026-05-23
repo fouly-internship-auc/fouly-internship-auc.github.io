@@ -67,11 +67,13 @@ now; on day one, I could barely find the directory.
 
 The shape of the work surprised me. I had assumed, going in, that the
 mathematical content of an applied software role would be modest and
-mostly buried under engineering concerns. What I found instead was that
-*the engineering decisions that mattered were the ones that had a clean
-mathematical structure*. Treating ETM data as a set of relations made it
-queryable; treating the clock alignment as an affine map made it
-estimable from a small number of synchronisation events; treating the
-cycle count as a fold over an ordered stream made it efficient. In each
-case the mathematics did not sit on top of the engineering as a layer of
-window-dressing — it was the engineering, expressed properly.
+mostly buried under engineering concerns. What I found instead was
+that *the engineering decisions that mattered were the ones that had
+a clean mathematical structure*. Treating ETM data as a set of
+relations made it queryable; recognising the clock alignment as a
+one-dimensional affine map made it cheap to resolve once we noticed
+the hardware was already reporting both parameters; treating the
+cycle count as a fold over an ordered stream made it efficient. In
+each case the mathematics did not sit on top of the engineering as a
+layer of window-dressing — it was the engineering, expressed
+properly.

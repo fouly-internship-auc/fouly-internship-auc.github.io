@@ -24,18 +24,20 @@ query is *supposed to compute* in symbols before reaching for code —
 a habit that paid off every time a subtle re-phrasing changed the
 engine's query plan by an order of magnitude.
 
-*Linear Algebra.* The clock-alignment work is, at its heart, a one-
-dimensional affine fitting problem: given pairs $(t_("etm")^{(i)},
-t_("sys")^{(i)})$ for synchronisation events $i = 1, dots, n$, the
-question is how to recover $alpha$ and $beta$ so that $alpha dot
-t_("etm")^{(i)} + beta approx t_("sys")^{(i)}$ across all of them.
-The habit of treating that as a linear-least-squares problem and
-reasoning about conditioning, residuals and the geometry of the
-estimator came directly from linear algebra. The implementation that
-shipped deliberately stops short of computing the fit and leaves it
-to a human reading the UI plot, but the design document discusses the
-more general estimator in terms that would have been impossible to
-phrase carefully without the linear-algebra background.
+*Linear Algebra.* The clock-alignment work is at heart a one-
+dimensional affine map: given a system clock $t_("sys")$ and an ETM
+clock $t_("etm")$, recover the pair $(alpha, beta)$ such that
+$alpha dot t_("etm") + beta approx t_("sys")$. Most of the linear-
+algebra mileage in the internship was spent on the path *not* taken:
+the design document's earlier iterations treated this as a fitting
+problem against synchronisation events, and a real linear-algebraist's
+habit of reasoning about conditioning, residuals and the geometry of
+an estimator was the right way to argue about whether that approach
+would be stable. The shipped solution reads the parameters directly
+out of a device register, so the fitting machinery never ran in
+production; but the conversation that led to the simpler answer would
+not have been possible without the linear-algebra vocabulary to
+discuss it.
 
 *Graph Theory.* ETM traces are easiest to interpret in terms of the
 *control-flow graph* of the program being traced. Each basic block is a
