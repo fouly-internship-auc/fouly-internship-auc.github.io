@@ -1,0 +1,72 @@
+# Build the slide deck and the report PDF, then publish them to GitHub
+# Pages. The slide deck is the site root; the report PDF is served at
+# /report.pdf alongside it. Triggered on every push to main and via the
+# manual `gh workflow run deploy.yml` (also wired up as `make deploy`).
+
+name: Deploy report + slides
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy at a time; if a second push lands mid-deploy, queue it
+# rather than cancel the in-flight publish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: slides/package-lock.json
+
+      - name: Install slide dependencies
+        run: npm ci
+        working-directory: slides
+
+      - name: Build slide deck
+        run: npm run build
+        working-directory: slides
+
+      - name: Compile report PDF
+        run: typst compile report/main.typ
+
+      - name: Bundle report PDF alongside the deck
+        run: cp report/main.pdf slides/dist/report.pdf
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artefact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: slides/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
