@@ -7,8 +7,8 @@ export default function MathLens1Relational() {
   return (
     <SlideFrame
       eyebrow="Math lens · 1 of 3"
-      title="Relational algebra &amp; set theory"
-      subtitle="Once ETM packets become relations, the analyses become joins."
+      title="Relations, joins, and query cost"
+      subtitle="ETM becomes a SQL table. Analyses become joins. The math is in how cheap each join is on a hundred-million-row engine."
       ruleColor="var(--color-math)"
     >
       <div style={{ display: 'flex', gap: 60, alignItems: 'stretch' }}>

@@ -10,18 +10,19 @@ courses providing the operational language for the work.
 
 == Mathematics Courses
 
-*Discrete Mathematics and Formal Logic.* This was the single most
-load-bearing course for the internship. Relational algebra is built on
-top of set theory, and the SQL operators I designed and reviewed are best
-understood as algebraic operations on relations: selection, projection,
-the various flavours of join, set union and difference, and the equational
-identities that connect them. Predicate logic gave me the vocabulary for
-reasoning about query semantics — quantifier scope, existential subqueries,
-the behaviour of joins under `NULL`s — which came up repeatedly in design
-reviews. Formal logic in particular gave me the habit of writing out a
-specification in symbols before reaching for code, which was the right
-habit for working in a codebase where the operational consequences of a
-small algebraic mistake were measured in millions of misaligned rows.
+*Discrete Mathematics and Formal Logic.* The most load-bearing course
+for the internship. Sets, relations and predicate logic are the
+substrate on which the trace processor's SQL surface is built, and
+having that substrate fluent — not just operationally but
+*specification-first* — made the difference between writing a query
+that worked on the small case and one that would survive an analyst
+pointing it at three hundred million rows. Predicate logic in
+particular shaped how I argued about query semantics in code review:
+quantifier scope, existential subqueries, the behaviour of joins
+under `NULL`s. Formal logic taught me the habit of stating what a
+query is *supposed to compute* in symbols before reaching for code —
+a habit that paid off every time a subtle re-phrasing changed the
+engine's query plan by an order of magnitude.
 
 *Linear Algebra.* The clock-alignment work is, at its heart, a one-
 dimensional affine fitting problem: given pairs $(t_("etm")^{(i)},
@@ -61,17 +62,22 @@ The mathematics courses gave me the lens; a few computer-science courses
 gave me the implementation vocabulary I needed in order to operate inside
 a large open-source codebase.
 
-*Algorithms and Data Structures* informed every decision I made about how
-to lay out the relational operators. Interval trees, sorted-merge joins
-and hash joins are not abstract objects for someone who has had to argue
-about their asymptotic cost in a course assignment, and that grounding
-came back on every design review for the cycle-count join work.
+*Algorithms and Data Structures* was the course that turned the
+relational-query-cost work from intuition into vocabulary. Interval
+trees, sorted-merge joins, hash joins, and the asymptotic arguments
+that decide between them are not abstract objects for someone who
+has had to argue about them in a course assignment, and that
+grounding came back on every design review for the cycle-count join
+work — usually as the answer to "why will this be fast on a hundred
+million rows".
 
 *Databases* was the course that turned out to overlap almost perfectly
 with the day-to-day work. Perfetto's trace processor is a database
-engine, just one that has been specialised to performance traces, and a
-large fraction of the design discussions I participated in could have
-been transposed directly into a databases-course problem set.
+engine — specialised to performance traces, tuned hard for very tall
+relations, but a database engine nonetheless — and a large fraction
+of the design discussions I participated in could have been
+transposed directly into a databases-course problem set on cost
+models and query planning.
 
 *Computer Architecture* was the course that let me read the ARM ETM
 specification without feeling lost. Concepts like instruction pipelines,

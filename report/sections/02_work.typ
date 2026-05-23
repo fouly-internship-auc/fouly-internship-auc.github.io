@@ -16,12 +16,12 @@ doing, one important thing it could not see well was *what instructions* a
 core had executed. That information lives in a much lower-level facility
 that ARM cores expose, called the *Embedded Trace Macrocell* (ETM). The
 gap between "Perfetto knows ETM data exists" and "Perfetto can decode,
-align, query and visualise ETM data" was the gap I was hired to close.
+align, query and visualise ETM data" was the gap I closed.
 
 == The Problem: ETM Traces
 
-ETM is the on-die hardware that emits a cycle-accurate, lossless record
-of which instructions a CPU executed and roughly when. The packet
+ETM is hardware that emits a cycle-accurate record
+of which instructions a CPU executed and when. The packet
 stream that comes out of it is dense — a saturated trace can easily hit
 gigabytes a second per core — and the documentation that explains how
 to parse it is thin, scattered across ARM architecture manuals, kernel
@@ -34,31 +34,30 @@ In other words, before any of this data was useful inside Perfetto, three
 things had to be true:
 
 + The trace bytes had to be *decoded* into structured records.
-+ Those records had to be *aligned* with the global timeline so they could
-  be cross-referenced with everything else in the trace.
++ Those records had to be *aligned* with the global timeline so they could be cross-referenced with everything else in the trace.
 + The decoded, aligned records had to be *queryable* using the same
   relational machinery that already powered the rest of the trace processor.
 
-Each of these turned out to be a mathematical question dressed up as an
-engineering one.
+Each of these turned out to be questions with both engineering and mathematical themes.
 
-== Mathematical Lens 1 — Relational Algebra and Set Theory
+== Mathematical Lens 1 — Relations, Joins and Query Cost
 
-The dominant idiom inside the Perfetto trace processor is relational. Once a
-trace is loaded, every concept inside it — a thread, a slice, a counter
-sample — is a row in a relation, and analyses are written as SQL queries
-joined and filtered across those relations.
+The dominant idiom inside the Perfetto trace processor is relational,
+and almost everything around it is written in *Perfetto SQL itself*:
+the standard library, the analysis primitives, the table-valued
+functions, the diff tests. Adding a new capability to Perfetto, nine
+times out of ten, means writing more SQL rather than more C++.
 
-To make ETM fit this idiom I designed and implemented a family of *SQL
-table-valued functions* and *virtual tables* that present ETM packet
-streams as ordinary relations. The central virtual table is the
-*decoded-chunk* table, whose row schema includes
-`element_type`, `timestamp`, `cycle_count`, `last_seen_timestamp`,
-`cumulative_cycles`, `isa`, an embedded `instruction_range`, and
-several other diagnostic columns. The `last_seen_timestamp` and
-`cumulative_cycles` columns in particular were added by my PRs
-\#2643 and \#2706; they make per-row aggregate state directly
-queryable without an explicit user-side window.
+To make ETM fit this idiom I designed and implemented a family of
+*SQL table-valued functions* and *virtual tables* that present ETM
+packet streams as ordinary relations. The central virtual table is
+the *decoded-chunk* table, whose row schema includes `element_type`,
+`timestamp`, `cycle_count`, `last_seen_timestamp`, `cumulative_cycles`,
+`isa`, an embedded `instruction_range`, and several other diagnostic
+columns. The `last_seen_timestamp` and `cumulative_cycles` columns in
+particular were added by my PRs \#2643 and \#2706; they make per-row
+aggregate state directly queryable without an explicit user-side
+window.
 
 With the data in that shape, questions like "which symbols were
 active when this slice ran?" reduce to ordinary relational joins
@@ -68,19 +67,33 @@ half-open address or time ranges intersect:
 
 $ [a_1, b_1) inter [a_2, b_2) eq.not emptyset $
 
-These are well-studied joins in database theory but they have to be
-implemented carefully when the relations have hundreds of millions of rows;
-several of the PRs I landed (notably `tp: etm: improve etm decode` and
-`tp: etm: fix cycle count for joins`) were specifically about making these
-relational operations correct and tractable at scale.
+These are well-studied joins in database theory, but writing one that
+behaves well against a Perfetto trace turned out to require a more
+specific kind of mathematical thinking than I had expected: *query
+cost analysis* against the particular engine Perfetto ships with.
 
-The set-theoretic part of this is not ornamental. The semantics of the SQL
-that the trace processor exposes is grounded in the relational algebra
-introduced by Codd: selection, projection, join, union, difference and
-their algebraic identities. When I argued for the design of one operator
-over another in a design review, the argument was usually that one form had
-a cleaner algebraic structure than the other, which made it easier to
-reason about and easier for the optimiser to push predicates through.
+Perfetto's SQL engine is heavily tuned for what the team described
+as *tall tables* — relations with far more rows than columns, where
+a typical analytic query is going to walk through hundreds of
+millions of rows in a single scan. That assumption shows up
+everywhere in the engine's internal cost model: in the join
+strategies it prefers, in how it pushes predicates through, in how
+aggressively it materialises intermediate results. A query that
+looks correct in pure relational terms can still be wildly wrong in
+*cost* against this engine — for example by triggering a full
+re-scan of an intermediate relation that a slightly different
+phrasing would have allowed it to skip.
+
+A meaningful fraction of the design-review conversation on the ETM
+join PRs — notably `tp: etm: improve etm decode` and `tp: etm: fix
+cycle count for joins` — was therefore not about whether a query was
+algebraically right but about whether it was *cheap*: how the engine
+would decompose it, how the predicate-push-down would route through
+it, what the row counts at each intermediate stage would look like.
+Learning to read the engine's cost behaviour well enough to predict
+that, on a codebase whose authors had spent years tuning it, was the
+bulk of the mathematical-software learning curve in the first half
+of the internship.
 
 == Mathematical Lens 2 — Aligning Two Clocks
 
