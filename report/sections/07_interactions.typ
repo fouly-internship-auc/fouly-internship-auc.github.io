@@ -39,7 +39,7 @@ this end of the seniority gap looks like in practice.
 The Perfetto team is geographically spread across several offices,
 though much of the trace-processor leadership sits in London with me.
 On that side of the codebase I worked closely with Lalit Maganti, a
-senior technical lead who acted as my main code reviewer for the
+senior engineer who acted as my main code reviewer for the
 relational-algebra work, and on the UI and front-end side I worked
 with engineers based in offices I never visited. Even with Lalit in
 the same city, most of our exchanges were textual: review comments,

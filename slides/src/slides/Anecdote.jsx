@@ -87,7 +87,7 @@ export default function Anecdote() {
             background: 'var(--color-warm-soft)',
             color: 'var(--color-warm)', fontWeight: 700,
           }}>
-            Lalit · TL
+            Lalit
           </div>
           <div style={{
             background: 'var(--color-warm-soft)',

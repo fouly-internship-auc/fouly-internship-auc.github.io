@@ -109,7 +109,7 @@ the register-read approach that did, carefully enough that the
 engineer who picks up the next iteration of the alignment work will
 not have to re-derive any of it.
 
-Smaller but still load-bearing documents argued out the
+Smaller but still important documents argued out the
 cumulative-cycle aggregate, the diff-test plumbing, the ETM session
 track in the UI, and the structural decision to rename `trace` to
 `chunk` (which removed a name overload that had been quietly
@@ -119,8 +119,8 @@ was a written argument first and a code change second.
 In short: the project came in with eighteen merged changelists, three
 substantial design documents and several smaller ones, and a
 non-trivial amount of cleanup work on the surrounding build, test and
-documentation infrastructure. Lalit Maganti, the team's senior
-trace-processor tech lead, noted that he considered this project "one
+documentation infrastructure. Lalit Maganti, a senior engineer 
+noted that he considered this project "one
 of the most challenging intern projects [he] had ever seen" — a
 remark that lives in the evaluation letter — and the fact that it
 landed in a usable state, in the public repository, is the most

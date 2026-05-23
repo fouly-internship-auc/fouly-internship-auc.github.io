@@ -36,10 +36,12 @@ export default function ProgramSuggestions() {
 
       <Animated as="div" animate="fade" delay={150 + SUGGESTIONS.length * 130 + 100}
         className="callout" style={{ marginTop: 28 }}>
-        What the programme <em>does</em> get right: discrete maths, linear
-        algebra, graph theory and probability are taught at a high enough
-        standard that I could sit at a senior-engineer table and contribute.
-        The suggestions above extend that foundation rather than replace it.
+        <strong>On additions, not removals.</strong> The mathematics
+        foundation — discrete maths, linear algebra, graph theory,
+        probability — was taught at a high enough standard for me to sit
+        at a senior-engineer table and contribute. The suggestions above
+        extend that foundation; nothing in the existing offering is what
+        I would cut on the basis of a single internship.
       </Animated>
     </SlideFrame>
   );

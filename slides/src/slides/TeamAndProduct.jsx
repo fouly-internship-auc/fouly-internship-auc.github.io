@@ -35,7 +35,8 @@ export default function TeamAndProduct() {
           <span className="card__tag">Subject expert</span>
           <div className="card__title" style={{ fontSize: 24 }}>Lalit Maganti</div>
           <div className="card__sub" style={{ fontSize: 18 }}>
-            Senior TL, trace processor. Reviewed most of my code.
+            Senior engineer, Perfetto trace processor. Reviewed most of
+            my code.
           </div>
         </Animated>
       </div>

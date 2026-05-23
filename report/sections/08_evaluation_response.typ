@@ -64,12 +64,12 @@ historical. Her experience, reviews, and patient teaching ran
 underneath most of the Perfetto-side work, and the diff-test plumbing
 in particular would not exist in its current shape without her.
 
-*Lalit Maganti*, the trace-processor tech lead, was the subject-matter
-expert I went to when a question genuinely needed an authoritative
-answer. Several of the anecdotes earlier in this report involve him
-directly; a great deal of what I learned about how to argue for a
-design decision in writing came out of trying, and frequently
-failing, to argue one past him.
+*Lalit Maganti*, a senior engineer on the Perfetto team, was the
+subject-matter expert I went to when a question genuinely needed an
+authoritative answer. Several of the anecdotes earlier in this report
+involve him directly; a great deal of what I learned about how to
+argue for a design decision in writing came out of trying, and
+frequently failing, to argue one past him.
 
 The version of me that returns to Google will be a noticeably better
 engineer because of all three.

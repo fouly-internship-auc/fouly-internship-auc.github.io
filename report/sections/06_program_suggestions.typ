@@ -1,34 +1,29 @@
 = Suggestions for the AUC Mathematics Program
 
-I want to be careful here: I am one intern, with one industry experience,
-and a curriculum is a much larger object than any single internship can
-inform. The suggestions below are offered in that spirit. They are the
-places where I felt the gap between what I had been taught and what the
-work needed.
+I want to be careful here: I am one intern, with one industry experience. The suggestions below are offered in that spirit. They are the
+places where I felt the gap between what I had been taught and what the work needed.
 
 == Add an Applied / Computational Mathematics Track
 
 The single course I would have wanted on my transcript before walking
-into the Perfetto team is one that I would describe as *applied and
+into the Perfetto team is one I would describe as *applied and
 computational mathematics*: a course that takes the abstractions of
-linear algebra, analysis and discrete mathematics and asks how they are
-realised on real hardware, in real software, against real data.
+linear algebra, analysis and discrete mathematics and asks how they
+are realised on hardware and in software against real data.
 Numerical conditioning, the cost of operations, the way an algorithm
 degrades under finite precision — these are mathematical questions, but
-they are usually not taught inside a pure mathematics course at AUC. A
-dedicated applied track would close that gap for students whose careers
+they are not taught at AUC (to my knowledge). A
+dedicated track would close that gap for students whose careers
 will take them outside academia.
 
 == Optimisation
 
 A formal optimisation course — convex optimisation, linear programming,
-the basics of non-linear optimisation and the duality theory connecting
+the basics of non-linear optimisation and the theory connecting
 them — would have helped me at several points during the internship,
 particularly when reasoning about the cost models of relational joins
-and when arguing for one estimator over another for the clock-alignment
-fit. AUC has very strong probability and analysis offerings; an
-optimisation course taught at the same standard would round out that
-foundation.
+and when arguing for one estimator over another for the clock-alignment fit. An 
+optimisation course would round out that foundation.
 
 == Formal Verification and Specification
 
@@ -38,8 +33,7 @@ much easier to acquire if formal verification had been a course I had
 taken. A semester spent writing pre- and post-conditions, reasoning about
 loop invariants and using a tool like a proof assistant to enforce them
 would have given me the habit of stating what a program is *supposed to
-do* before deciding how it should do it. That habit is what design
-documents are an industrial-grade version of.
+do* before deciding how it should do it. 
 
 == Complexity Analysis as a Mathematical Subject
 
@@ -72,7 +66,7 @@ on the basis of this one internship. The courses I leaned on most
 earned every hour I spent on them, and the courses I did not lean on
 directly during the internship — real analysis, the more abstract
 algebra coursework — are the kind of structural foundation whose
-absence is felt much later in a career than the timescale of a
+absence I assume is felt much later in a career than the timescale of a
 thirteen-week internship can fairly judge. I would not remove
 anything; the suggestions above are about *adding to* the offering,
 not replacing it.
@@ -81,7 +75,6 @@ I want to close this section by emphasising what the programme *did*
 get right. The courses I leaned on most during this internship —
 discrete mathematics, linear algebra, graph theory, probability and
 statistics — were taught at a standard high enough that I was able to
-walk into a conversation about relational algebra, affine fitting and
-graph reachability at a senior-engineer table and contribute
-meaningfully. The additions above build on that foundation rather
-than displacing any part of it.
+walk into a conversation about relational algebra and graph
+reachability at a senior-engineer table and contribute. The additions
+above build on that foundation rather than displacing any part of it.

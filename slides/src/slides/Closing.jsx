@@ -48,7 +48,7 @@ export default function Closing() {
           </div>
           Rasika Navarange (host) &middot;{' '}
           Anna Mayzner (co-host) &middot;{' '}
-          Lalit Maganti (TL)
+          Lalit Maganti
         </div>
         <div>
           <div style={{ color: '#fff', fontSize: 24, marginBottom: 4 }}>
