@@ -8,20 +8,11 @@ relationship, but the substantive conversations happened ad hoc, on
 the days when there was something concrete to discuss — a new design
 document, a stuck code review, an architectural decision that needed
 a tie-breaker. Early in the internship those conversations were
-unusually long, because I was still trying to triangulate what the
-team actually wanted me to build out of a project description that,
-by design, left much of the architecture open. As the project shape
-stabilised the meetings shrank to the more typical fifteen-minute
-check-in, with longer ones only when I had a design document on the
+unusually long, because I was still learning and had an abundance of questions to ask and designs to discuss. As the project shape, and my understanding,
+stabilised the meetings became check-ins, with longer ones only when I had a design document on the
 table or when a code review had surfaced something architectural.
 
-The thing I valued most about how Rasika ran those check-ins was that
-she insisted on me coming with a concrete *option set* rather than an
-open question. If I was stuck on a design choice, the expectation was
-not "tell me what to do" but "here are the two or three approaches I
-have considered and what I see as the trade-offs of each". That habit
-forced me to do the framing work myself before I asked for a decision,
-and it is a habit that I think will outlast the internship.
+I really appreciated to format of these check-ins as they always involved a non work section that just checked in on how I was doing with living in a new country and if anything upsetting or fun had happened recently. There was also a lot of prompting for introspection and constant oppertunities for feedback and improvement which was essential for my growth and learning.
 
 A small but representative example: on the cumulative-cycles PR
 (\#2643), Rasika asked, during review, whether the design accounted
@@ -36,22 +27,11 @@ this end of the seniority gap looks like in practice.
 
 == The Wider Team
 
-The Perfetto team is geographically spread across several offices,
-though much of the trace-processor leadership sits in London with me.
-On that side of the codebase I worked closely with Lalit Maganti, a
-senior engineer who acted as my main code reviewer for the
-relational-algebra work, and on the UI and front-end side I worked
-with engineers based in offices I never visited. Even with Lalit in
-the same city, most of our exchanges were textual: review comments,
-design documents and PR threads rather than meetings. The written-
-asynchronous style was new to me; I learned, more or less the hard
-way, how to *write a comment that resolves a question rather than
-starting a new one*.
+On that Perfetto side of the codebase I often worked with Anna (my co-host) and Lalit (a senior engineer who frequently acted as my main code reviewer). Conversations with very busy engineers actually helped show me the importance of being concise and clear in order to save the very valuable time of those whose help and opnion I need.
 
-There are two exchanges that capture what working with this team
-actually felt like better than any abstract description I could write.
-Both involve a PR thread, an unreasonable timestamp, and a reply
-faster than is strictly polite.
+Furthermore, just seeing how experienced engineers aproached problems and design questions was really benificial. The ability of Rasika, Anna, and Lalit to switch contexts rapidly between different tasks was incredibly impressive and a skill I hope to aquire.
+
+There are two exchanges that capture some of the unique experiences I had. 
 
 The first happened on the evening of Friday the 1#super[st] of August.
 I was stuck on PR \#2375 — my standard-library `symbolize` function
@@ -97,22 +77,20 @@ None of us had. The conversation pulled three people out of their
 weekends into the same fifteen-minute window, and it was over before
 any of us had really committed to staying up for it.
 
-The pacing of those exchanges — *minutes*, across teams, at
-unreasonable hours, on weekends — is the thing I find hardest to
+The pacing of those exchanges — *minutes*, across teams
+, on weekends — is the thing I find hardest to
 convey to someone who has not seen it. It is also one of the reasons
-I came away respecting the seniority of the engineers on the team
-more than I have respected anyone else I have worked with.
+I came away respecting the seniority of the engineers I met. 
 
 I also spent a non-trivial amount of time with engineers outside my
 immediate point-of-contact set. Adding the LLVM symbolizer as a build
-dependency required a conversation with the team that owns Perfetto's
-build infrastructure; the ETM session track in the UI required a
+dependency required a conversation with Perfetto's
+lead engineers; the ETM session track in the UI required a
 conversation with the front-end engineers; the diff-test work was
-done in close collaboration with Anna Mayzner, who had rewritten much
+done in close collaboration with my co-host Anna, who had rewritten much
 of the diff-test infrastructure and was the natural sign-off on any
 plumbing changes that touched it. Setting up those conversations,
-presenting the work clearly enough that the other team understood
-what I was asking for, and writing the resulting agreement down was,
+presenting the work clearly, and writing the resulting agreement down was,
 in retrospect, as much of the job as writing the code itself.
 
 == Culture
@@ -125,11 +103,10 @@ landed after a single round of comments, while a structural change
 could go through many — but the implicit norm was always that the
 review continued until reviewer and author had genuinely converged.
 That is a much slower model than the move-fast culture I was used to
-from coursework and from open-source contributions, and it took a few
+from coursework and it took a few
 weeks to recalibrate. By the end of the internship I had come to
 genuinely prefer it: the rate at which work landed was slower, but
-the rate at which work *stayed landed* without follow-up reverts was
-much higher.
+the rate at which work *stayed landed* without follow-up reverts was much higher.
 
 The design-document culture is the complement of that. Most of the
 significant decisions in the project were settled in writing, in a
@@ -149,7 +126,4 @@ minutes earlier — and then, in the way these things sometimes go, the
 cloud dev machine I was running the demo from chose that exact moment
 to freeze. There was nothing in my code that caused it; the VM simply
 stopped responding. What was telling was the room's reaction. No-one
-flinched. Someone made the standard joke about the demo gods. We
-rebooted, picked up where we had left off, and the conversation moved
-on. Demos go wrong, the implicit assumption seemed to be, and the
-interesting question is what you do next.
+flinched. Someone made the standard joke about the demo gods. 

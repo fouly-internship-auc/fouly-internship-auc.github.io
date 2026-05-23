@@ -11,7 +11,7 @@ honestly.
 
 The first observation is that I tend to react well when edge cases
 arise but do not anticipate them aggressively enough at the design
-stage. I think this is correct. When I look back at the design
+stage. This is correct. When I look back at the design
 documents I wrote during the internship, almost all of them describe
 the *happy path* of the system in great detail, with the failure modes
 addressed as a short section near the end. The right structure, I

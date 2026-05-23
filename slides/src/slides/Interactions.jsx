@@ -24,11 +24,13 @@ export default function Interactions() {
           </div>
         </Animated>
         <Animated as="div" animate="up" delay={490} className="card">
-          <span className="card__tag">1:1s</span>
-          <div className="card__title">Option set, not open question.</div>
+          <span className="card__tag">Mentorship</span>
+          <div className="card__title">More than the code.</div>
           <div className="card__sub" style={{ fontSize: 21 }}>
-            &ldquo;Two or three approaches, with their trade-offs&rdquo;
-            &mdash; not &ldquo;tell me what to do&rdquo;.
+            Every 1:1 made room for a non-work check-in &mdash; how I was
+            settling in, what was upsetting or fun &mdash; alongside
+            constant prompts for introspection and feedback. Essential
+            for growing in a new country, not just in a new codebase.
           </div>
         </Animated>
       </div>
