@@ -3,13 +3,13 @@ import { SlideFrame } from '../components/SlideFrame.jsx';
 
 const GROUPS = [
   {
-    tag: 'Stdlib &amp; symbolize',
+    tag: 'Symbolization (the schism)',
     color: 'var(--color-accent)',
     items: [
-      ['#2035', 'profiling: symbolizer: adds llvm symbolizer'],
-      ['#2069', 'ci: add llvm-dev to sandbox ci'],
-      ['#2315', 'tp: stdlib: adds _linux_perf_etm_metadata'],
       ['#2375', 'Adds a symbolize function to stdlib'],
+      ['#2035', 'profiling: symbolizer: adds llvm symbolizer'],
+      ['#2315', 'tp: stdlib: adds _linux_perf_etm_metadata'],
+      ['#2069', 'ci: add llvm-dev to sandbox ci'],
       ['#2382', 'tp: stdlib: adds symbolize and etm diff tests'],
     ],
   },

@@ -174,11 +174,19 @@ groups roughly into four themes:
 
 #block(inset: (left: 1em), [
   #set list(spacing: 0.6em)
-  - *Standard library and symbolization* — Perfetto's SQL stdlib gained a
-    `symbolize` function, an `_linux_perf_etm_metadata` view exposing file
-    names and relative program counters, and a diff-test harness covering
-    symbolize and ETM behaviours. The LLVM symbolizer was added as a
-    first-class build dependency.
+  - *Symbolization* — the headline feature of this group, and the
+    single largest piece of design work in the internship.
+    Symbolization is what turns a decoded ETM packet, which on its
+    own says nothing more than "a CPU executed at this opaque address
+    at this opaque time", into the exact line of source code the
+    core was actually running. Adding that capability introduced the
+    first architectural schism in Perfetto: the trace processor had
+    never needed to reason about external program binaries before,
+    and it took a substantial design negotiation to land. Perfetto's
+    SQL stdlib gained a `symbolize` function, the
+    `_linux_perf_etm_metadata` view exposed file names and relative
+    program counters, and the LLVM symbolizer became a first-class
+    build dependency.
   - *ETM decode* — improvements to the trace-processor side of ETM
     decoding, including a binary-info error fix, the rename of `trace`
     to `chunk` for clarity, the addition of symbolisation to the ETM

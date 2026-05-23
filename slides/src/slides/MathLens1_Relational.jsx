@@ -46,7 +46,8 @@ export default function MathLens1Relational() {
           <JoinDiagram />
           <div style={{ fontSize: 22, color: 'var(--color-ink-muted)',
             textAlign: 'center', marginTop: -10 }}>
-            Execution intervals (R) &times; symbol ranges (S) &nbsp;⟶&nbsp; per-symbol cycles.
+            This join <em>is</em> symbolization &mdash; the join that turns an
+            opaque ETM packet into a source-line attribution.
           </div>
         </Animated>
       </div>

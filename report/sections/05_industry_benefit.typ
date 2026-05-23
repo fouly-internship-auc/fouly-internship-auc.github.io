@@ -14,17 +14,21 @@ three categories.
 
 == New Capability for the Trace Processor
 
-Before this internship, Perfetto's relationship with ETM was experimental
-and incomplete. There was no way to ask a Perfetto trace processor "show
-me the cumulative cycles spent in this address range across this trace",
-because the underlying data was not exposed as queryable relations. By
-the end of the internship there was. The new SQL surface includes the
-`symbolize` standard-library function, the `_linux_perf_etm_metadata`
-view that exposes file names and relative program counters from a Linux
-`perf` trace, the cumulative cycle aggregate, and a last-seen-timestamp
-aggregate. Each of those is now available to any engineer at Google or
-in the wider open-source community who is investigating a performance
-regression with ETM data.
+Before this internship, Perfetto's relationship with ETM was
+experimental and incomplete. There was no way to ask a Perfetto trace
+processor "show me the cumulative cycles spent in this address range
+across this trace", and — more fundamentally — no way to ask "*which
+line of source code* was a given CPU core running at a given moment".
+By the end of the internship there was. The new SQL surface includes
+a `symbolize` standard-library function that maps decoded ETM packets
+back to source lines (the architectural negotiation that this
+required is described under *Documentation*, below), the
+`_linux_perf_etm_metadata` view exposing file names and relative
+program counters from a Linux `perf` trace, the cumulative cycle
+aggregate, and a last-seen-timestamp aggregate. Each of those is now
+available to any engineer at Google or in the wider open-source
+community who is investigating a performance regression with ETM
+data.
 
 == Tooling and Build Infrastructure
 
@@ -52,16 +56,30 @@ heaviest, in terms of both length and the number of engineers who
 ended up reviewing it, was the document that set out the *ETM
 extension to the trace processor itself* — the relational schema, the
 decoder interface, the lifecycle of the new virtual tables, the
-integration points with the rest of Perfetto. Second was the
-*symbolization document* that set out how the LLVM symbolizer would be
-wired into the trace-processor build and surfaced as a stdlib
-function for attaching source-level symbols to ETM instruction
-ranges. Third was the *clock-mapping framework* — the artefact I am
-in some ways proudest of, less for its weight than for what it
-captures: the affine model, the synchronisation-event regression
-that did not ship, and the register-read approach that did,
-carefully enough that the engineer who picks up the next iteration
-of the alignment work will not have to re-derive any of it.
+integration points with the rest of Perfetto.
+
+Second — and in retrospect the most architecturally consequential
+of the three — was the *symbolization design document*. The job of
+symbolization is to take a raw ETM packet, which on its own carries
+nothing more than "a CPU executed at this opaque address at this
+opaque time", and turn it into the exact line of source code the
+core was actually running. Adding that capability to Perfetto
+introduced the first real *architectural schism* in the trace
+processor: the engine had never been asked to reason about external
+program binaries before, and a substantial design negotiation
+followed over where the symbolization boundary should sit, who
+owned the new LLVM build dependency, and how the SQL surface should
+expose the mapping. The document is the record of that negotiation
+as much as it is a specification, and the fact that the schism
+resolved into a clean separation rather than a leak is, in
+retrospect, the thing I am proudest of architecturally.
+
+Third was the *clock-mapping framework* — the artefact I am in some
+ways proudest of for different reasons: it captures the affine
+model, the synchronisation-event regression that did not ship, and
+the register-read approach that did, carefully enough that the
+engineer who picks up the next iteration of the alignment work will
+not have to re-derive any of it.
 
 Smaller but still load-bearing documents argued out the
 cumulative-cycle aggregate, the diff-test plumbing, the ETM session
