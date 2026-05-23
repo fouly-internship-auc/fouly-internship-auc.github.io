@@ -56,11 +56,13 @@ is *specific*: it names what worked, names what could be better, and
 treats both as deserving of the same kind of careful attention. That
 is the same standard she held me to throughout the internship.
 
-*Anna Mayzner*, my co-host, owned the testing-infrastructure side of
-the codebase I spent most of my time in, and was unfailingly patient
-with the procession of diff-test plumbing changes I needed to land
-through her side of the world. The diff-test work in this internship
-would not exist in its current shape without her.
+*Anna Mayzner*, my co-host, was the engineer I leaned on for the
+broader Perfetto context that the project never quite stopped
+needing — design conventions, the shape of the testing infrastructure,
+which paths through the codebase were load-bearing and which were
+historical. Her experience, reviews, and patient teaching ran
+underneath most of the Perfetto-side work, and the diff-test plumbing
+in particular would not exist in its current shape without her.
 
 *Lalit Maganti*, the trace-processor tech lead, was the subject-matter
 expert I went to when a question genuinely needed an authoritative

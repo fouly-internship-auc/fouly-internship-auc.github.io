@@ -6,7 +6,7 @@ export default function TeamAndProduct() {
     <SlideFrame
       eyebrow="The team"
       title="Web Performance · Perfetto"
-      subtitle="Open-source performance instrumentation and trace analysis. The tool Android, Chrome and server engineers reach for when nanoseconds matter."
+      subtitle="Web Performance is the team that keeps Chrome smooth — they diagnose delay and jitter. Perfetto is the open-source profiler they (and the rest of Google) reach for to do it."
     >
       <div className="grid-cards grid-cards--4" style={{ marginTop: 16 }}>
         <Animated as="div" animate="up" delay={150} className="card">
@@ -20,21 +20,22 @@ export default function TeamAndProduct() {
           <span className="card__tag">Host</span>
           <div className="card__title" style={{ fontSize: 24 }}>Rasika Navarange</div>
           <div className="card__sub" style={{ fontSize: 18 }}>
-            Software Engineer, Perfetto. Wrote the evaluation letter.
+            Software Engineer, Perfetto. Designed the project; wrote the
+            evaluation letter.
           </div>
         </Animated>
         <Animated as="div" animate="up" delay={410} className="card">
           <span className="card__tag">Co-host</span>
           <div className="card__title" style={{ fontSize: 24 }}>Anna Mayzner</div>
           <div className="card__sub" style={{ fontSize: 18 }}>
-            Testing-infrastructure owner, diff-test plumbing.
+            Broad Perfetto expertise; reviews, teaching, diff-test plumbing.
           </div>
         </Animated>
         <Animated as="div" animate="up" delay={540} className="card">
           <span className="card__tag">Subject expert</span>
           <div className="card__title" style={{ fontSize: 24 }}>Lalit Maganti</div>
           <div className="card__sub" style={{ fontSize: 18 }}>
-            Senior TL, trace processor.
+            Senior TL, trace processor. Reviewed most of my code.
           </div>
         </Animated>
       </div>

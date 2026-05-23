@@ -30,8 +30,7 @@ The internship was hosted by *Google UK Limited*, Google's UK entity.
 ])
 
 During my internship I was placed with the Web Performance team who were always willing to help. My amazing host was *Rasika Navarange*, a Software
-Engineer on the Perfetto team and the person who designed my intern project and introduced me to the domain and helped and reviewed my project trajectory, architecture and design documents; she is the author of the evaluation letter I shared
-`appendix/evaluation_letter.pdf`.
+Engineer on the Perfetto team and the person who designed my intern project and introduced me to the domain and helped and reviewed my project trajectory, architecture and design documents; she is the author of the evaluation letter I shared alongside this report (`appendix/evaluation_letter.pdf`).
 
 My (also amazing) co-host was *Anna Mayzner*,
 on the Perfetto team, whose experience, reviews, and teaching I leaned on heavily for all Perfetto related work, such as
@@ -46,4 +45,4 @@ Rasika Navarange can be reached at `rasikan@google.com`.
 Formal employment
 verifications are handled by Google's HR operations at `verifications@google.com`, as noted on the attached employment letter.
 
-The official letter of employment from Google UK Limited has been submitted.
+The official letter of employment from Google UK Limited has been submitted alongside this report (`appendix/employment_verification.pdf`).
