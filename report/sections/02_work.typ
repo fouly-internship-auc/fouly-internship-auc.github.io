@@ -179,14 +179,17 @@ groups roughly into four themes:
     Symbolization is what turns a decoded ETM packet, which on its
     own says nothing more than "a CPU executed at this opaque address
     at this opaque time", into the exact line of source code the
-    core was actually running. Adding that capability introduced the
-    first architectural schism in Perfetto: the trace processor had
-    never needed to reason about external program binaries before,
-    and it took a substantial design negotiation to land. Perfetto's
-    SQL stdlib gained a `symbolize` function, the
+    core was actually running. Wiring that in required pulling in
+    the LLVM symbolizer, which is too heavy to ship in every
+    Perfetto build — and that constraint introduced the first real
+    architectural schism in Perfetto. Up to this point Perfetto built
+    identically on every machine; symbolization changed that, in
+    roughly the way a Linux kernel with a particular module loaded
+    is structurally different from one without it. Perfetto's SQL
+    stdlib gained a `symbolize` function, the
     `_linux_perf_etm_metadata` view exposed file names and relative
     program counters, and the LLVM symbolizer became a first-class
-    build dependency.
+    but *optional* build dependency.
   - *ETM decode* — improvements to the trace-processor side of ETM
     decoding, including a binary-info error fix, the rename of `trace`
     to `chunk` for clarity, the addition of symbolisation to the ETM

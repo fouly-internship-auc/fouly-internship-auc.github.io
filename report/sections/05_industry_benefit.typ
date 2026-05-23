@@ -36,11 +36,17 @@ The internship pushed Perfetto's build system in two ways that will
 keep paying dividends after I leave.
 
 The first is the introduction of the LLVM symbolizer as a first-class
-build dependency. The PR `profiling: symbolizer: adds llvm symbolizer`
-and the supporting CI work in `ci: add llvm-dev to sandbox ci` make
-it possible for the trace processor to attach source-level symbols to
-ETM instruction ranges directly inside SQL queries, instead of forcing
-analysts to post-process traces with a separate external symbolizer.
+but *optional* build dependency. The PR `profiling: symbolizer: adds
+llvm symbolizer` and the supporting CI work in `ci: add llvm-dev to
+sandbox ci` make it possible for the trace processor to attach
+source-level symbols to ETM instruction ranges directly inside SQL
+queries, instead of forcing analysts to post-process traces with a
+separate external symbolizer. This is the first time a Perfetto
+build component has been *optional* in this way; the architectural
+negotiation that allowed it to be is described in the *Documentation*
+sub-section below, and the test-side counterpart — running diff
+tests only when their required configuration is present — is
+described above.
 
 The second is *conditional diff tests based on configuration* — a
 general extension of Perfetto's diff-test framework that lets a given
@@ -67,20 +73,34 @@ decoder interface, the lifecycle of the new virtual tables, the
 integration points with the rest of Perfetto.
 
 Second — and in retrospect the most architecturally consequential
-of the three — was the *symbolization design document*. The job of
-symbolization is to take a raw ETM packet, which on its own carries
+of the three — was the *symbolization design document*.
+Symbolization takes a raw ETM packet, which on its own carries
 nothing more than "a CPU executed at this opaque address at this
-opaque time", and turn it into the exact line of source code the
-core was actually running. Adding that capability to Perfetto
-introduced the first real *architectural schism* in the trace
-processor: the engine had never been asked to reason about external
-program binaries before, and a substantial design negotiation
-followed over where the symbolization boundary should sit, who
-owned the new LLVM build dependency, and how the SQL surface should
-expose the mapping. The document is the record of that negotiation
-as much as it is a specification, and the fact that the schism
-resolved into a clean separation rather than a leak is, in
-retrospect, the thing I am proudest of architecturally.
+opaque time", and turns it into the exact line of source code the
+core was actually running. Wiring that into Perfetto required pulling
+in the LLVM symbolizer — too large, and too license-encumbered, to
+ship in every Perfetto build — and that constraint introduced the
+first real architectural schism in the trace processor.
+
+Up to this point, Perfetto built identically on every machine: same
+sources, same compiler flags, same binary. Symbolization changed
+that. A Perfetto build with the LLVM symbolizer present is now
+structurally different from one without it, in roughly the way a
+Linux kernel compiled with a given set of modules is different from
+one compiled without them. The trace processor had to grow a
+well-defined boundary at which optional components attach, the SQL
+surface had to learn to expose features that are sometimes there and
+sometimes not, the build system had to support both configurations
+side by side, and the test infrastructure had to grow the
+conditional-by-configuration plumbing described above so that
+symbolize tests would not just fail on machines without the
+dependency.
+
+The design document is the record of that whole negotiation as much
+as it is a specification, and the fact that the schism resolved into
+a clean module-like separation rather than a leak across the rest of
+the engine is, in retrospect, the thing I am proudest of
+architecturally.
 
 Third was the *clock-mapping framework* — the artefact I am in some
 ways proudest of for different reasons: it captures the affine
