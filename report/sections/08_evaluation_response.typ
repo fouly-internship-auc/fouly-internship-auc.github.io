@@ -45,7 +45,7 @@ been written, while the cost of writing the design document well is
 paid by code that has not been written yet. Going forward I want to
 push that boundary as far back into the design phase as I can.
 
-== A Brief Word of Thanks
+== A Word of Thanks
 
 I want to close this section by thanking the three engineers whose
 mentorship made the internship what it was.
@@ -54,13 +54,12 @@ mentorship made the internship what it was.
 project relationship. The letter is generous, but more importantly it
 is *specific*: it names what worked, names what could be better, and
 treats both as deserving of the same kind of careful attention. That
-is the same standard she held me to throughout the internship.
+is the same standard she held me to throughout the internship. Thanks are also deserved for Rasika giving me this oppertunity and choosing such an amazing project that truly gave me the chance to learn and then show off.
 
 *Anna Mayzner*, my co-host, was the engineer I leaned on for the
-broader Perfetto context that the project never quite stopped
+Perfetto context that the project never quite stopped
 needing — design conventions, the shape of the testing infrastructure,
-which paths through the codebase were load-bearing and which were
-historical. Her experience, reviews, and patient teaching ran
+understanding the codebase. Her experience, reviews, and patient teaching ran
 underneath most of the Perfetto-side work, and the diff-test plumbing
 in particular would not exist in its current shape without her.
 
