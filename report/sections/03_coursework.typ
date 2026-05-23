@@ -1,22 +1,20 @@
 = Cumulative Coursework Used During the Internship
 
-The internship was a SWE internship in title, but in practice it was a
-mathematical one in everything but name. Two of the three core technical
+The internship was a SWE internship in title, but like almost everything in life, it had a mathematical core. Two of the three main technical
 challenges — relational algebra over ETM data and the affine alignment of
-two clocks — were essentially mathematics problems with a software harness
-around them. The courses that I leaned on most were therefore the
-mathematics and logic courses I had taken, with a few computer-science
-courses providing the operational language for the work.
+two clocks — were essentially mathematics problems with a software wrapper (kind of redundant since all of computer science can be descriped as software preforming mathematics). The courses that I leaned on most were therefore the
+mathematics and logic courses I had taken, with computer science
+courses providing the language and tools for the work.
 
 == Mathematics Courses
 
 *Discrete Mathematics and Formal Logic.* The most load-bearing course
-for the internship. Sets, relations and predicate logic are the
+for the internship. Sets, relations and logic are the
 substrate on which the trace processor's SQL surface is built, and
 having that substrate fluent — not just operationally but
 *specification-first* — made the difference between writing a query
-that worked on the small case and one that would survive an analyst
-pointing it at three hundred million rows. Predicate logic in
+that worked on the small case and one that would survive an 
+an actual query over hundreds of millions of rows. Predicate logic in
 particular shaped how I argued about query semantics in code review:
 quantifier scope, existential subqueries, the behaviour of joins
 under `NULL`s. Formal logic taught me the habit of stating what a
@@ -24,7 +22,7 @@ query is *supposed to compute* in symbols before reaching for code —
 a habit that paid off every time a subtle re-phrasing changed the
 engine's query plan by an order of magnitude.
 
-*Linear Algebra.* The clock-alignment work is at heart a one-
+*Linear Algebra.* The clock-alignment work is a one-
 dimensional affine map: given a system clock $t_("sys")$ and an ETM
 clock $t_("etm")$, recover the pair $(alpha, beta)$ such that
 $alpha dot t_("etm") + beta approx t_("sys")$. Most of the linear-
@@ -34,10 +32,8 @@ problem against synchronisation events, and a real linear-algebraist's
 habit of reasoning about conditioning, residuals and the geometry of
 an estimator was the right way to argue about whether that approach
 would be stable. The shipped solution reads the parameters directly
-out of a device register, so the fitting machinery never ran in
-production; but the conversation that led to the simpler answer would
-not have been possible without the linear-algebra vocabulary to
-discuss it.
+out of a device register, so the fitting machinery never ran; but the conversation that led to the simpler answer would
+not have been possible without it.
 
 *Graph Theory.* ETM traces are easiest to interpret in terms of the
 *control-flow graph* of the program being traced. Each basic block is a
@@ -48,18 +44,20 @@ instructions — were essentially graph-reachability arguments. Graph theory
 gave me the language for those arguments and for explaining them in design
 documents.
 
-*Probability and Statistics.* Probability and statistics played a
-quieter role but a real one. The most concrete instance came in
-evaluating the sidecar-trace proposal for clock alignment during
-design review: whether the synchronisation events would have been
-distributed densely enough to support a *stable* affine fit was a
-statistical question more than a linear-algebra one, and the answer
-was part of why that approach was ultimately set aside. Beyond that,
-cycle-count totals were repeatedly cross-checked against the hardware
-performance counters, and the distinction between systematic error and
-random noise that probability courses train into you was the right
-vocabulary to draw whenever a divergence between two counters had to
-be classified as a bug or an artefact.
+*Probability and Statistics.* Probability and statistics earned their
+keep on the ETM data itself. The whole point of recording an ETM
+trace is to understand the *distribution* of what a CPU actually
+did — how often a given branch was taken versus not, where on the
+trace a particular event class concentrated, how the rate of one
+event class varied conditional on another. A real fraction of the
+analyses I built or extended over the internship were counting and
+binning exercises on top of hundreds of millions of decoded packets:
+empirical distributions over branch-not-taken events, event rates at
+various points of execution, ratios of cycles spent in one address
+range against another. The distinction between systematic error and
+random noise that probability courses train into you was also
+exactly the distinction I needed whenever a divergence between two
+counters had to be classified as a bug or an artefact.
 
 == Adjacent Computer Science Courses
 

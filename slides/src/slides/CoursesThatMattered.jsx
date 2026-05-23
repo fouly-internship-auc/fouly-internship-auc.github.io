@@ -9,7 +9,7 @@ const MATH = [
   { title: 'Graph Theory',
     note: 'Control-flow graphs, reachability, branch packets as edges.' },
   { title: 'Probability &amp; Statistics',
-    note: 'Stability of the path-not-taken fit; systematic vs. random error against hardware counters.' },
+    note: 'Distributions of branch-not-taken and other event classes across hundreds of millions of decoded packets.' },
 ];
 
 const CS = [
