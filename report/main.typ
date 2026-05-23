@@ -40,7 +40,7 @@
   #v(2.6cm)
   #text(size: 24pt, weight: "bold")[Practical Internship Report]
   #v(0.8em)
-  #text(size: 13pt)[Software Engineering Internship, Google UK Limited]
+  #text(size: 13pt)[Software Engineering Internship, Google UK]
   #v(0.4em)
   #text(size: 12pt, style: "italic")[Web Performance team — Perfetto]
   #v(2.8cm)
@@ -50,6 +50,7 @@
     row-gutter: 0.8em,
     align: (right, left),
     text(weight: "bold")[Name], [Omar Elfouly],
+    text(weight: "bold")[AUC ID], [900211195],
     text(weight: "bold")[Major], [Mathematics and Computer Engineering],
     text(weight: "bold")[Submitted for], [Mathematics practical internship course],
     text(weight: "bold")[Internship dates], [2 June 2025 — 29 August 2025],
