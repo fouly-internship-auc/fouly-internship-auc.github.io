@@ -1,6 +1,6 @@
 = Obtaining the Internship
 
-I first heard about the Google internship pipeline from a friend(Pimyn) who was,
+I first heard about the Google internship pipeline from a friend (Pimyn) who was,
 at the time, already interning at Google himself. He sent me a referral
 into the *EMEA Software Engineering Internship* cycle and, very kindly, walked me through how to prepare and what to expect — the
 shape of the interview loop, the pacing of the timeline, the kinds of
