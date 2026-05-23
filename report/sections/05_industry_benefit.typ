@@ -47,24 +47,35 @@ touch ETM does not have to rebuild that scaffolding.
 
 == Documentation
 
-The clock-alignment design document is, in some ways, the artefact I
-am most proud of from the internship. It captures the framework, the
-estimator, and the trade-offs argued out during review carefully
-enough that the engineer who picks up the next iteration of the work
-will not have to re-derive any of it. Alongside it sit the other
-substantial design documents from the internship — for the
+I wrote three substantial design documents during the internship. The
+heaviest, in terms of both length and the number of engineers who
+ended up reviewing it, was the document that set out the *ETM
+extension to the trace processor itself* — the relational schema, the
+decoder interface, the lifecycle of the new virtual tables, the
+integration points with the rest of Perfetto. Second was the
+*symbolization document* that set out how the LLVM symbolizer would be
+wired into the trace-processor build and surfaced as a stdlib
+function for attaching source-level symbols to ETM instruction
+ranges. Third was the *clock-mapping framework* — the artefact I am
+in some ways proudest of, less for its weight than for what it
+captures: the affine model, the synchronisation-event regression
+that did not ship, and the register-read approach that did,
+carefully enough that the engineer who picks up the next iteration
+of the alignment work will not have to re-derive any of it.
+
+Smaller but still load-bearing documents argued out the
 cumulative-cycle aggregate, the diff-test plumbing, the ETM session
 track in the UI, and the structural decision to rename `trace` to
-`chunk` (which removed a name overload that had been quietly confusing
-reviewers in the months leading up to the change). Each was a written
-argument first and a code change second.
+`chunk` (which removed a name overload that had been quietly
+confusing reviewers in the months leading up to the change). Each
+was a written argument first and a code change second.
 
-In short: the project came in with eighteen merged changelists,
-several substantial design documents and a number of smaller ones, and
-a non-trivial amount of cleanup work on the surrounding build, test
-and documentation infrastructure. Lalit Maganti, the team's senior trace-processor tech
-lead, noted that he considered this project "one of the most
-challenging intern projects [he] had ever seen" — a remark that lives
-in the evaluation letter — and the fact that it landed in a usable
-state, in the public repository, is the most concrete way I can
-summarise the contribution.
+In short: the project came in with eighteen merged changelists, three
+substantial design documents and several smaller ones, and a
+non-trivial amount of cleanup work on the surrounding build, test and
+documentation infrastructure. Lalit Maganti, the team's senior
+trace-processor tech lead, noted that he considered this project "one
+of the most challenging intern projects [he] had ever seen" — a
+remark that lives in the evaluation letter — and the fact that it
+landed in a usable state, in the public repository, is the most
+concrete way I can summarise the contribution.

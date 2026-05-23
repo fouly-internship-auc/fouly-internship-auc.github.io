@@ -195,6 +195,9 @@ groups roughly into four themes:
     the two are no longer accidentally combined.
 ])
 
-In parallel with the code, I delivered the design document for the
-clock-mapping framework and a final presentation to the Web Performance
-team in which I fielded questions from senior engineers and tech leads.
+In parallel with the code, I delivered several substantial design
+documents — the heaviest of which were the ETM trace-processor
+extension, the LLVM symbolization integration, and the clock-mapping
+framework — and a final presentation to the wider Web Performance
+audience in which I fielded questions from senior engineers and tech
+leads.

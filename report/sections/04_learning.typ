@@ -6,15 +6,15 @@ I expect to carry into the rest of my career, they would be these.
 
 == Working in Ambiguity
 
-The first month of the internship was, by some distance, the hardest of
+The above phrase was something that defined the work done by my team - the job was to constantly hunt for unkown preformance issues and fix them.
+
+The first month of the internship was, the hardest of
 the three. The official ARM documentation for ETM is sparse and assumes
 a reader who already knows the hardware; the existing decoder library
 documents its public API but not its internal model; the existing usage
 of ETM inside Perfetto consisted of a small experimental subset of
-features that nobody on the team had touched in months. I spent the
-first two weeks deliberately reading the ARM architecture manual at the
-pace of the slowest engineer who has ever joined the team — taking
-notes on what each ETM packet type was actually saying and writing
+features developed by someone no longer on the team. Thankfully, my host and co-host were amazing enough to help me catch up on everything I need to know and give me a smooth plan to follow. My only issue was that it felt that I was making no evidence of work while I spent the
+first two weeks reading the ARM architecture manual  — taking notes on what each ETM packet type was actually saying and writing
 small throwaway coding examples to convince myself that I had
 understood what I was reading. The reading never really stopped during
 the rest of the internship, but those first two weeks were the moment
@@ -31,24 +31,21 @@ problem.
 
 == The Value of Design Documents
 
-The Perfetto team is unusually rigorous about design documents, and I
+The Perfetto team is rigorous about design choices (and by extension documents), and I
 came to understand why. A design document is not the same thing as a
 specification, and it is not the same thing as documentation. It is a
 *written argument* for why one architectural choice should win over the
 alternatives. The act of writing it forces you to enumerate the
 alternatives in the first place; the act of circulating it forces you to
-make the argument legible to someone who is not in your head.
+make the argument legible to someone who is not in your head. Ofcourse, circulating it also allows much more experiend engineers to offer their very useful input which often reveals much simpler solutions.
 
-I wrote several substantial design documents during the internship —
-the clock-mapping framework was the heaviest, but the cumulative-cycle
+I wrote several design documents during the internship — the document for adding the ETM extension was the heaviest, followed by sybomlization using LLVM, and then
+the clock-mapping framework, but the cumulative-cycle
 aggregate, the diff-test plumbing, and the structural rework around
 the `trace`/`chunk` distinction each had their own document long
 enough to be argued over by reviewers before any code was committed.
 Each of them caught problems that I would otherwise have caught only
-in code review, at which point fixing them would have cost an order
-of magnitude more time. By the end of the internship I had
-internalised the habit: when the next problem arrives I will, by
-reflex, open an empty design document before opening an empty file.
+in code review, at which point fixing them would have might have meant throwing away the code and tests I had implemented.
 
 == Operating Inside a Very Large Codebase
 
@@ -75,5 +72,4 @@ one-dimensional affine map made it cheap to resolve once we noticed
 the hardware was already reporting both parameters; treating the
 cycle count as a fold over an ordered stream made it efficient. In
 each case the mathematics did not sit on top of the engineering as a
-layer of window-dressing — it was the engineering, expressed
-properly.
+layer of window-dressing — it was the engineering, expressed properly.
