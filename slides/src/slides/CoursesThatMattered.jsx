@@ -3,13 +3,13 @@ import { SlideFrame } from '../components/SlideFrame.jsx';
 
 const MATH = [
   { title: 'Discrete Math &amp; Formal Logic',
-    note: 'Relational algebra, predicate logic, equational reasoning about SQL.' },
+    note: 'Sets, relations, predicate logic. Specification-first query reasoning; joins under NULLs.' },
   { title: 'Linear Algebra',
-    note: 'Affine fitting, conditioning, residuals — the clock-alignment lens.' },
+    note: 'Affine maps, conditioning, residuals — the clock-alignment lens, including the fit that turned out not to ship.' },
   { title: 'Graph Theory',
     note: 'Control-flow graphs, reachability, branch packets as edges.' },
   { title: 'Probability &amp; Statistics',
-    note: 'Systematic vs. random error in counter sanity-checks.' },
+    note: 'Stability of the path-not-taken fit; systematic vs. random error against hardware counters.' },
 ];
 
 const CS = [

@@ -48,15 +48,18 @@ instructions — were essentially graph-reachability arguments. Graph theory
 gave me the language for those arguments and for explaining them in design
 documents.
 
-*Probability and Statistics.* Probability and statistics played a quieter
-role but a real one. Whenever I needed to sanity-check whether an ETM
-trace was "good enough" — whether the synchronisation events were
-distributed densely enough across the trace to support an affine fit,
-whether the cycle-count totals were within an expected envelope of the
-hardware performance counters — I was thinking statistically. The
-distinction between systematic error and random noise that probability
-courses train into you is exactly the distinction I needed to draw to tell
-whether a divergence between two counters was a bug or an artefact.
+*Probability and Statistics.* Probability and statistics played a
+quieter role but a real one. The most concrete instance came in
+evaluating the sidecar-trace proposal for clock alignment during
+design review: whether the synchronisation events would have been
+distributed densely enough to support a *stable* affine fit was a
+statistical question more than a linear-algebra one, and the answer
+was part of why that approach was ultimately set aside. Beyond that,
+cycle-count totals were repeatedly cross-checked against the hardware
+performance counters, and the distinction between systematic error and
+random noise that probability courses train into you was the right
+vocabulary to draw whenever a divergence between two counters had to
+be classified as a bug or an artefact.
 
 == Adjacent Computer Science Courses
 
