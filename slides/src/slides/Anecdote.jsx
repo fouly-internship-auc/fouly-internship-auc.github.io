@@ -141,8 +141,7 @@ export default function Anecdote() {
         className="callout callout--warm" style={{ marginTop: 22 }}>
         <strong>Half-eleven on a Friday night in London.</strong> Three people in
         two different repos, one downstream breakage in a sister product, a
-        one-minute clarification — and the entire conversation was over
-        before any of us had really committed to staying up for it.
+        one-minute clarification.
       </Animated>
     </SlideFrame>
   );
