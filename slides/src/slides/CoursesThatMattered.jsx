@@ -52,7 +52,7 @@ export default function CoursesThatMattered() {
             fontSize: 18, letterSpacing: '0.16em', textTransform: 'uppercase',
             fontWeight: 700, color: 'var(--color-accent)', marginBottom: 12,
           }}>
-          Adjacent (Computer Science)
+          Computer Science and Engineering
         </Animated>
         <div className="grid-cards grid-cards--3">
           {CS.map((c, i) => (
