@@ -28,7 +28,8 @@ export default function TeamAndProduct() {
           <span className="card__tag">Co-host</span>
           <div className="card__title" style={{ fontSize: 24 }}>Anna Mayzner</div>
           <div className="card__sub" style={{ fontSize: 18 }}>
-            Broad Perfetto expertise; reviews, teaching, diff-test plumbing.
+            Software Engineer, Perfetto. Broad expertise; reviews,
+            teaching, diff-test plumbing.
           </div>
         </Animated>
         <Animated as="div" animate="up" delay={540} className="card">
