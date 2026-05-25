@@ -33,8 +33,8 @@ During my internship I was placed with the Web Performance team who were always 
 Engineer on the Perfetto team and the person who designed my intern project and introduced me to the domain and helped and reviewed my project trajectory, architecture and design documents; she is the author of the evaluation letter I shared alongside this report (`appendix/evaluation_letter.pdf`).
 
 My (also amazing) co-host was *Anna Mayzner*,
-on the Perfetto team, whose experience, reviews, and teaching I leaned on heavily for all Perfetto related work, such as
-the diff-test side of the work. 
+a Software Engineer on the Perfetto team, whose experience, reviews, and teaching I leaned on heavily for all Perfetto related work, such as
+the diff-test side of the work.
 
 The third was *Lalit Maganti*, the L7(for refrence an L9 is as high as you can go, and you start as an L2) on the Perfetto team and a very helpful expert on the parts of the codebase I was working in; he was not my formal chain of command, but he was the
 person reviewing most of my code changes and who I went to when an architectural question needed a definitive answer, and several of the anecdotes later in this report involve him

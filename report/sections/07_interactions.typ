@@ -74,8 +74,7 @@ pushing a commit to a related ETM PR at `23:29` UTC — twelve thirty
 on a Saturday morning, my time — and then leaving a comment on the
 diff-test PR at `00:45`. I had not been planning to work that night.
 None of us had. The conversation pulled three people out of their
-weekends into the same fifteen-minute window, and it was over before
-any of us had really committed to staying up for it.
+weekends into the same fifteen-minute window.
 
 The pacing of those exchanges — *minutes*, across teams
 , on weekends — is the thing I find hardest to
